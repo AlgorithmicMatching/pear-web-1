@@ -1,6 +1,3 @@
 .idea/
 node_modules/
 
-config.json
-*.iml
-.DS_Store
