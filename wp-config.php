@@ -17,6 +17,8 @@
  *
  * @package WordPress
  */
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 
 $domain = $_SERVER['SERVER_NAME'];
 
