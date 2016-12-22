@@ -153,8 +153,17 @@ function pear_prevent_admin_access() {
 add_action( 'load-edit-comments.php', __NAMESPACE__ . '\\pear_prevent_admin_access' );
 add_action( 'load-tools.php', __NAMESPACE__ . '\\pear_prevent_admin_access' );
 
+function getGender($firstname) {
+$myKey = 'ZHsJHhcMHCNKRAQDgg';
+$data = json_decode(file_get_contents('https://gender-api.com/get?key=' . $myKey . '&name=' . urlencode($firstname)));
+//$data = json_decode(file_get_contents('https://gender-api.com/get?name='.urlencode($firstname)));
+return $data->gender;
+}
+
 function psfSubmissionHandler() {
+
 	if ( ! isset( $_POST['psf_nonce'] ) || ! wp_verify_nonce( $_POST['psf_nonce'], 'psf_form_submit' ) ) {
+
 		die( json_encode( [
 			'status'  => 501,
 			'title'   => 'Error',
@@ -169,13 +178,15 @@ function psfSubmissionHandler() {
 			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 		} else {
 			$ip = $_SERVER['REMOTE_ADDR'];
+			
 		}
-
+		
 		$reader = new Reader( $_SERVER['DOCUMENT_ROOT'] . '/GeoLite2-City.mmdb' );
 		try {
 			$record = $reader->city( $ip );
 		} catch ( \Exception $e ) {
 			// geoip can't read ip data, do nothing
+           $record = null;
 		}
 
 		if ( isset( $record->city->name ) ) {
@@ -188,21 +199,56 @@ function psfSubmissionHandler() {
 			$location = 'N/A';
 		}
 
+		if(isset( $record->city->name ) ){
+			$city = $record->city->name;
+		}
+		else{
+			$city = 'N/A';
+		}
+
+		if(isset( $record->country->name ) ){
+			$country = $record->country->name;
+		}
+		else{
+			$country = 'N/A';
+		}
+
+		$gender = getGender(filter_var( $_POST['user_name'], FILTER_SANITIZE_STRING ));
+		$name = filter_var( $_POST['user_name'], FILTER_SANITIZE_STRING );
+		$email = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
+		$age = filter_var( $_POST['user_age'], FILTER_SANITIZE_NUMBER_INT );
+
+		/*$location = 'N/A';
+		$city = 'N/A';
+		$country = 'N/A';*/
+
 		$status = $wpdb->insert(
 			$wpdb->prefix . 'psf',
 			array(
-				'Name'     => filter_var( $_POST['user_name'], FILTER_SANITIZE_STRING ),
-				'Email'    => filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL ),
-				'Age'      => filter_var( $_POST['user_age'], FILTER_SANITIZE_NUMBER_INT ),
+				'Name'     => $name,
+				'Email'    => $email,
+				'Age'      => $age,
+				'refferal_link' => filter_var( $_POST['user_refferal']),
 				'Location' => $location,
+				'City' => $city,
+				'Country' => $country,
+				'Gender' => $gender,
 			)
 		);
 
 		if ( $status ) {
+			$to  = $email;
+			$subject = 'Sign Up Information Provided';
+			$message = "<html><body><h3>Hello &nbsp;". $name .":</h3><br><p>Thanks For Signing Up. You Provide us the following Information.</p><br><b>Email: &nbsp;". $email ."</b><br><b>Age: &nbsp;".$age."</b></body></html>";
+			$headers = array('Content-Type: text/html; charset=UTF-8'); 
+
+			wp_mail($to,$subject,$message,$headers);
+
 			die( json_encode( [
 				'status'  => 200,
 				'title'   => 'Success',
-				'message' => __( 'Sign up successful!', 'pear' )
+				'message' => __( 'Sign up successful!', 'pear' ),
+				'refferal_link' => filter_var( $_POST['user_refferal']),
 			] ) );
 		} else {
 			die( json_encode( [

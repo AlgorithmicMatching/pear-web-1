@@ -19,6 +19,7 @@ class PearSubscriptionForm {
 	public function __construct() {
 		add_filter( 'set-screen-option', [ __CLASS__, 'set_screen' ], 10, 3 );
 		add_action( 'admin_menu', [ $this, 'plugin_menu' ] );
+		add_action( 'admin_post_pr27_export_csv', [ $this, 'pr27_export_csv' ] );
 	}
 
 	public static function set_screen( $status, $option, $value ) {
@@ -81,6 +82,8 @@ class PearSubscriptionForm {
 				</div>
 				<br class="clear">
 			</div>
+
+			<a href="<?php echo admin_url( 'admin-post.php?action=pr27_export_csv' ); ?>" class="button button-primary">Export</a>
 		</div>
 		<?php
 	}
@@ -100,14 +103,19 @@ class PearSubscriptionForm {
 		$table_name      = $wpdb->prefix . 'psf';
 		$charset_collate = $wpdb->get_charset_collate();
 
-		$sql = "CREATE TABLE $table_name (
+		$sql = "CREATE TABLE IF NOT EXISTS $table_name (
 			`ID` INT NOT NULL AUTO_INCREMENT ,
 			`Name` VARCHAR(255) NOT NULL ,
 			`Email` VARCHAR(255) NOT NULL ,
 			`Age` TINYINT NOT NULL ,
 			`Location` VARCHAR(255) ,
+			`Country` VARCHAR(255) ,
+			`Gender` VARCHAR(255) ,
+			`City` VARCHAR(255) ,
+			`refferal_link` VARCHAR(400) ,
 			PRIMARY KEY (`ID`),
-		  	UNIQUE KEY `Email` (`Email`)) $charset_collate;";
+			UNIQUE KEY `Email` ('Email')) $charset_collate;";
+		   
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
@@ -126,7 +134,8 @@ class PearSubscriptionForm {
 		<div class="mid-section text-center">
 			<div class="pear-logo"></div>
 			<h1>Creating matches, the smart way</h1>
-			<p class="mt0 mb32">Join our community to be among our beta testers or know when Pear will be available in your city</p>
+			<p class="mt0 mb32">Join our community to be among our beta testers or know when Pear will be available in
+				your city</p>
 			<div class="row join-form-container">
 				<div class="col-xs-12 col-sm-4">
 					<input id="name" class="input-boxed" type="text" placeholder="Name" required/>
@@ -139,6 +148,8 @@ class PearSubscriptionForm {
 						<option></option>
 					</select>
 				</div>
+				<input type="hidden" name="refferal" id="refferal" value="<?php echo empty($_REQUEST['refferal']) ? "direct" : $_REQUEST['refferal']; ?>">
+
 				<input type="text" name="surname" style="display:none;">
 				<?php echo wp_nonce_field( 'psf_form_submit', 'psf_nonce', true, false ); ?>
 			</div>
@@ -147,9 +158,70 @@ class PearSubscriptionForm {
 				<img class="loader inactive" src="<?php echo get_template_directory_uri(); ?>/dist/images/loader.svg"/>
 			</div>
 			<p class="mt24 we-promise">We promise to keep our emails to a minimum.</p>
+            <p class="coming-soon">
+                Coming soon to &nbsp;<img src="<?php echo get_template_directory_uri(); ?>/dist/images/soon-app-store.png"/>&nbsp; and &nbsp;<img src="<?php echo get_template_directory_uri(); ?>/dist/images/soon-google-play.svg"/>.
+            </p>
 		</div>
 		<?php
 		return $html = ob_get_clean();
+	}
+
+	function pr27_export_csv() {
+//		if ( ! wp_verify_nonce( $_POST['pr27_export_csv_nonce'], 'pr27_export_csv' ) ) {
+//			die( 'Invalid nonce.' . var_export( $_POST, true ) );
+//		}
+
+		global $wpdb;
+
+		$wpdb->show_errors();
+
+		$table_name = $wpdb->prefix . 'psf';
+
+		// Build your query
+		$results = $wpdb->get_results( "SELECT `Name`, `Email`, `Age`, 'Gender', `Country`, 'City', 'refferal_link' FROM $table_name" );
+
+		// Process report request
+		if ( ! $results ) {
+			$error = $wpdb->print_error();
+			die( "The following error was found: $error" );
+		} else {
+			// Prepare our csv download
+
+			// Set header row values
+			$output_filename = 'Subscriptions.csv';
+			$output_handle   = @fopen( 'php://output', 'w' );
+
+			header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
+			header( 'Content-Description: File Transfer' );
+			header( 'Content-type: text/csv' );
+			header( 'Content-Disposition: attachment; filename=' . $output_filename );
+			header( 'Expires: 0' );
+			header( 'Pragma: public' );
+
+			$first = true;
+			// Parse results to csv format
+			foreach ( $results as $row ) {
+
+				// Add table headers
+				if ( $first ) {
+					$titles = array();
+					foreach ( $row as $key => $val ) {
+						$titles[] = $key;
+					}
+					fputcsv( $output_handle, $titles );
+					$first = false;
+				}
+
+				$leadArray = (array) $row; // Cast the Object to an array
+				// Add row to file
+				fputcsv( $output_handle, $leadArray );
+			}
+
+			// Close output file stream
+			fclose( $output_handle );
+
+			die();
+		}
 	}
 
 }
@@ -278,6 +350,10 @@ class Subscriptions_List extends WP_List_Table {
 			case 'Name':
 			case 'Age':
 			case 'Location':
+			case 'Country':
+			case 'City':
+			case 'Gender':
+			case 'refferal_link':
 				return $item[ $column_name ];
 			default:
 				return print_r( $item, true ); //Show the whole array for troubleshooting purposes
@@ -308,7 +384,10 @@ class Subscriptions_List extends WP_List_Table {
 			'name'     => __( 'Name', 'pear' ),
 			'Email'    => __( 'Email', 'pear' ),
 			'Age'      => __( 'Age', 'pear' ),
-			'Location' => __( 'Location', 'pear' )
+			'Gender' => __( 'Gender', 'pear' ),
+			'Country' => __( 'Country', 'pear' ),
+			'City' => __( 'City', 'pear' ),
+			'refferal_link' => __( 'Refferal Link', 'pear' )
 		];
 
 		return $columns;
@@ -324,7 +403,10 @@ class Subscriptions_List extends WP_List_Table {
 			'Name'     => array( 'Name', true ),
 			'Email'    => array( 'Email', false ),
 			'Age'      => array( 'Age', false ),
-			'Location' => array( 'Location', false ),
+			'Country' => array( 'Country', false ),
+			'Gender' => array( 'Gender', true ),
+			'City' => array( 'City', false ),
+			'refferal_link' => array( 'refferal_link', false )
 		);
 
 		return $sortable_columns;
