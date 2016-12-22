@@ -114,7 +114,7 @@ class PearSubscriptionForm {
 			`City` VARCHAR(255) ,
 			`refferal_link` VARCHAR(400) ,
 			PRIMARY KEY (`ID`),
-			UNIQUE KEY `Email` ('Email')) $charset_collate;";
+			UNIQUE KEY  ('Email')) $charset_collate;";
 		   
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -148,7 +148,7 @@ class PearSubscriptionForm {
 						<option></option>
 					</select>
 				</div>
-				<input type="hidden" name="refferal" id="refferal" value="<?php echo empty($_REQUEST['refferal']) ? "direct" : $_REQUEST['refferal']; ?>">
+				<input type="hidden" name="refferal" id="refferal" value="<?php echo empty($_SERVER['HTTP_REFERER']) ? "direct" : $_SERVER['HTTP_REFERER']; ?>">
 
 				<input type="text" name="surname" style="display:none;">
 				<?php echo wp_nonce_field( 'psf_form_submit', 'psf_nonce', true, false ); ?>

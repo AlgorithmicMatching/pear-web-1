@@ -172,7 +172,7 @@ function psfSubmissionHandler() {
 	} else {
 		global $wpdb;
 
-		if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
+		/*if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
 			$ip = $_SERVER['HTTP_CLIENT_IP'];
 		} elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
 			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -211,16 +211,16 @@ function psfSubmissionHandler() {
 		}
 		else{
 			$country = 'N/A';
-		}
+		}*/
 
 		$gender = getGender(filter_var( $_POST['user_name'], FILTER_SANITIZE_STRING ));
 		$name = filter_var( $_POST['user_name'], FILTER_SANITIZE_STRING );
 		$email = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
 		$age = filter_var( $_POST['user_age'], FILTER_SANITIZE_NUMBER_INT );
 
-		/*$location = 'N/A';
+		$location = 'N/A';
 		$city = 'N/A';
-		$country = 'N/A';*/
+		$country = 'N/A';
 
 		$status = $wpdb->insert(
 			$wpdb->prefix . 'psf',
@@ -237,12 +237,12 @@ function psfSubmissionHandler() {
 		);
 
 		if ( $status ) {
-			$to  = $email;
+			/*$to  = $email;
 			$subject = 'Sign Up Information Provided';
 			$message = "<html><body><h3>Hello &nbsp;". $name .":</h3><br><p>Thanks For Signing Up. You Provide us the following Information.</p><br><b>Email: &nbsp;". $email ."</b><br><b>Age: &nbsp;".$age."</b></body></html>";
 			$headers = array('Content-Type: text/html; charset=UTF-8'); 
 
-			wp_mail($to,$subject,$message,$headers);
+			wp_mail($to,$subject,$message,$headers);*/
 
 			die( json_encode( [
 				'status'  => 200,
