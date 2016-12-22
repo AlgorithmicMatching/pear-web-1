@@ -114,7 +114,7 @@ class PearSubscriptionForm {
 			`City` VARCHAR(255) ,
 			`refferal_link` VARCHAR(400) ,
 			PRIMARY KEY (`ID`),
-			UNIQUE KEY `Email` ('Email')) $charset_collate;";
+			UNIQUE KEY  ('Email')) $charset_collate;";
 		   
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
