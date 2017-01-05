@@ -3,6 +3,9 @@
   background: url('../images/hero-blog.png') center center;
   background-color: black;
   background-size: cover;
+  @media #{$extra-small-and-down} {
+    background-position: 83% 50%;
+  }
 
   display: flex;
   flex-direction: column;
@@ -98,8 +101,13 @@
   }
 
   .slick-carousel-container {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
 
+    @media #{$small-and-down} {
+      width: 80%;
+      margin: 0 auto;
+    }
     @media #{$extra-small-and-down} {
       width: 70%;
       margin: 0 auto;

@@ -24,7 +24,7 @@
 </div>
 <div class="landing">
 	<div class="landing-home">
-		<div id="hero-cover" class="landing-main content" >
+		<div id="hero-cover" class="landing-main content hero-1" >
 			@@include('./_includes/top_nav.html')
 			<span id="nav-home-trigger"></span>
 			<div class="mid-section text-center">
@@ -49,6 +49,9 @@
 					<img class="loader inactive" src="images/loader.svg" />
 				</div>
 				<p class="mt24 we-promise">We promise to keep our emails to a minimum.</p>
+				<p class="coming-soon">
+					Coming soon to &nbsp;<img src="images/soon-app-store.png"/>&nbsp; and &nbsp;<img src="images/soon-google-play.svg"/>.
+				</p>
 			</div>
 		</div>
 	</div>
@@ -105,11 +108,11 @@
 				Besides helping you making new friends, we want to improve your knowledge about what you like and what others think about you.
 			</div>
 			<div class="col-xs-12 col-sm-4 about-subsection pr24">
-				<a href="http://rtvslo.si">
-					<h2 class="text-uppercase text-center">The Pear report</h2>
-					<hr />
-					Periodically, we will provide you with an individual report that will inform you of your own tastes and of how you score with people of the other sex.
-				</a>
+				<div class="button green shadow text-uppercase button-join button-pear-report">
+					<img src="images/report-icon.svg"/> The pear report
+				</div>
+				<hr />
+				Periodically, we will provide you with an individual report that will inform you of your own tastes and of how you score with people of the other sex.
 			</div>
 			<div class="col-xs-12 col-sm-4 about-subsection pr24">
 				<h2 class="text-uppercase text-center">Support us</h2>
@@ -192,7 +195,7 @@
 			</div>
 			<div class="social-media-section mt32 mb32">
 				<a target="_black" href="https://www.instagram.com/pearmeapp/" class="icon instagram-icon"></a>
-				<a target="_black" href="https://www.facebook.com/pear-715151941955999/" class="icon facebook-icon"></a>
+				<a target="_black" href="http://www.facebook.com/pearmeapp/" class="icon facebook-icon"></a>
 				<a target="_black" href="https://twitter.com/pearmeapp" class="icon twitter-icon"></a>
 			</div>
 	  </div>
@@ -224,7 +227,7 @@
 	<div class="landing-support support mb24 mt96 pb96">
 		<div id="nav-support-trigger"></div>
 		<div class="hero-title support-title">
-			<h1 class="text-center">Support</h1>
+			<h1 class="text-center text-uppercase">Support</h1>
 		</div>
 
 		<div class="row support-container">
@@ -268,9 +271,11 @@
 	    </div>
 		</div>
 
-		<div class="button green shadow text-uppercase button-join">
-			Show all Q&A
-		</div>
+		<a href="/support.html">
+			<div class="button green shadow text-uppercase button-join">
+				Show all Q&A
+			</div>
+		</a>
 	</div>
 
 	<!-- <div id="nav-media-trigger"></div>
@@ -338,6 +343,7 @@
 			We promise to keep our emails to a minimum
 		</div>
 	</div> -->
+	@@include('./_includes/cookie.html')
 
 </div>
 

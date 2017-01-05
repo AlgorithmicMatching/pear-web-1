@@ -10,8 +10,8 @@
 
 			<div class="email col-xs-12 col-sm-5 pb96 text-center">
 				<img src="<?php echo get_template_directory_uri() ?>/dist/images/mail-icon.svg" style="height: 80px; width: 80px;"/>
-				<p class="text-size-xs margin0 text-thin">If you have other questions, or other technical issues, please
-					contact us at <a class="text-link" href="mailto:support@pear.com">support@pear.com</a></p>
+				<p class="text-size-xss margin0 text-thin">If you have other questions, or other technical issues, please
+					contact us at <a class="text-link" href="mailto:support@pear.me">support@pear.me</a></p>
 			</div>
 
 		<?php endwhile; ?>

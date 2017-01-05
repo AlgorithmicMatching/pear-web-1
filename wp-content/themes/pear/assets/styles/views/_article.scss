@@ -1,15 +1,27 @@
 .article-cover {
   height: 500px;
-  background: url('../images/hero-blog.png') center center;
   background-color: black;
   background-size: cover;
+  position: relative;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
 
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
   h1 {
     color: white;
+    position: relative;
+    z-index: 1;
   }
 }
 

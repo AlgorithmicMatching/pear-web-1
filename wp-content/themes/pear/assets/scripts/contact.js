@@ -7,16 +7,16 @@ jQuery(function ($) {
         var user_name = $("#name");
         var user_email = $("#email");
         var user_age = $("#age");
-        var user_refferal = $("#refferal");
+        var ref = $("#refferal");
+        var utm = $("#source");
         var psf_nonce = $("#psf_nonce");
-       
 
         fd.append("user_name", user_name.val());
         fd.append("user_email", user_email.val());
+        fd.append("user_refferal", ref.val());
+        fd.append("utm_source", utm.val());
         fd.append("user_age", user_age.find(":selected").text());
-        fd.append("user_refferal", user_refferal.val());
         fd.append("psf_nonce", psf_nonce.val());
-
         fd.append("action", "psf_form_submit");
 
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -43,7 +43,7 @@ jQuery(function ($) {
                         user_email.val('');
                         $("#select2-age-container").html('<span class="select2-selection__placeholder">Age</span>');
 
-                        toastr.success(response.title, response.message, response.refferal_link);
+                        toastr.success(response.title, response.message);
                     } else {
                         toastr.error(response.title, response.message);
                     }

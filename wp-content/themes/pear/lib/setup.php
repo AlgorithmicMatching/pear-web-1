@@ -156,14 +156,11 @@ add_action( 'load-tools.php', __NAMESPACE__ . '\\pear_prevent_admin_access' );
 function getGender($firstname) {
 $myKey = 'ZHsJHhcMHCNKRAQDgg';
 $data = json_decode(file_get_contents('https://gender-api.com/get?key=' . $myKey . '&name=' . urlencode($firstname)));
-//$data = json_decode(file_get_contents('https://gender-api.com/get?name='.urlencode($firstname)));
 return $data->gender;
 }
 
 function psfSubmissionHandler() {
-
 	if ( ! isset( $_POST['psf_nonce'] ) || ! wp_verify_nonce( $_POST['psf_nonce'], 'psf_form_submit' ) ) {
-
 		die( json_encode( [
 			'status'  => 501,
 			'title'   => 'Error',
@@ -178,15 +175,14 @@ function psfSubmissionHandler() {
 			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 		} else {
 			$ip = $_SERVER['REMOTE_ADDR'];
-			
 		}
-		
+
 		$reader = new Reader( $_SERVER['DOCUMENT_ROOT'] . '/GeoLite2-City.mmdb' );
 		try {
 			$record = $reader->city( $ip );
 		} catch ( \Exception $e ) {
 			// geoip can't read ip data, do nothing
-           $record = null;
+      $record = null;
 		}
 
 		if ( isset( $record->city->name ) ) {
@@ -213,14 +209,18 @@ function psfSubmissionHandler() {
 			$country = 'N/A';
 		}
 
-		$gender = getGender(filter_var( $_POST['user_name'], FILTER_SANITIZE_STRING ));
+		
 		$name = filter_var( $_POST['user_name'], FILTER_SANITIZE_STRING );
 		$email = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
 		$age = filter_var( $_POST['user_age'], FILTER_SANITIZE_NUMBER_INT );
+		$utm = filter_var( $_POST['utm_source'], FILTER_SANITIZE_NUMBER_INT );
 
-		/*$location = 'N/A';
-		$city = 'N/A';
-		$country = 'N/A';*/
+		$arr = explode(' ',trim($name));
+		$fname =  $arr[0];
+		$gender = getGender($fname);
+
+		$table = $wpdb->prefix . 'email';
+		$rows = $wpdb->get_results( "SELECT * FROM $table" );
 
 		$status = $wpdb->insert(
 			$wpdb->prefix . 'psf',
@@ -233,22 +233,97 @@ function psfSubmissionHandler() {
 				'City' => $city,
 				'Country' => $country,
 				'Gender' => $gender,
+				'utm_source' => filter_var( $_POST['utm_source']),
+				'created_date' => current_time( 'mysql' )
 			)
 		);
 
+
 		if ( $status ) {
+			if(isset($rows[0]->email_content)&& !empty($rows[0]->email_content)){
+			$content = html_entity_decode($rows[0]->email_content);
 			$to  = $email;
-			$subject = 'Sign Up Information Provided';
-			$message = "<html><body><h3>Hello &nbsp;". $name .":</h3><br><p>Thanks For Signing Up. You Provide us the following Information.</p><br><b>Email: &nbsp;". $email ."</b><br><b>Age: &nbsp;".$age."</b></body></html>";
-			$headers = array('Content-Type: text/html; charset=UTF-8'); 
+			$subject = 'Welcome To Pear';
+			$message = '<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pear App</title>
+	<style type="text/css">
+		 body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+	</style>
+</head>
+<body>
+<table style="font-family: Helvetica, arial, sans-serif; margin:0 auto; max-width:610px; width:100%;background-color: #fff;" width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tbody>
+		<tr>
+			<td style="height: 84px; width: 171px; text-align: center; padding: 12px 12px 0;">
+				<a href="http://pear.me" style="display: inline-block; vertical-align: top;">
+					<img src="http://s3.amazonaws.com/pear.images/wp-content/uploads/2016/12/22143516/pear.png">
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="font-family: Helvetica, arial, sans-serif; margin:0 auto; max-width:610px; width:100%;background-color: #fff;">
+	<tbody>
+		<tr>
+			<td style="width:29px;"></td>
+			<td style="">
+				<table border="0" width="100%" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td colspan="2" style="border-bottom:1px solid #ccc;" ></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="padding:0 0 22px;" ></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="padding:0 15px 21px;line-height: 21px; color:#262626;" >'.$content.'</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="padding:0 0 22px;" >Did not sign up? Unsubscribe by <a href="http://www.pear.me/unsubscribe.php">clicking here</a></td>
+						<tr>
+					</tbody>
+				</table>
+			</td>
+			<td style="width:29px;"></td>
+		</tr>
+		
+	</tbody>
+</table>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="font-family: Helvetica, arial, sans-serif; margin:0 auto; max-width:610px; width:100%;background-color: #333;">
+	<tbody>
+		<tr>
+			<td style="padding:0 0 23px;"></td>
+		</tr>
+		<tr>
+			<td style="padding: 0 30% 0 24%;">
+				<table border="0" width="100%" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="color:#fff;font-weight: bold;" >Join the Community </td>
+							<td style="color:#fff;padding: 0 10px;" > / </td>
+							<td style="padding: 0 8px;"><a href="https://www.instagram.com/pearmeapp/"><img src="http://powerof.iserver.purelogics.net/cf/instagram.png"></a></td>
+							<td style="padding: 0 8px;"><a href="https://twitter.com/pearmeapp"><img src="http://mlm.iserver.purelogics.net/white_twitter.png"></a></td>
+							<td style="padding: 0 0 0 8px;"><a href="www.facebook.com/pearmeapp/"><img src="http://mlm.iserver.purelogics.net/white_facebook.png"></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding: 0 0 18px;"></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>';
+			$headers = array('Content-Type: text/html; charset=UTF-8','From: Daniele <daniele@pear.me>'); 
 
 			wp_mail($to,$subject,$message,$headers);
-
+		}
 			die( json_encode( [
 				'status'  => 200,
 				'title'   => 'Success',
-				'message' => __( 'Sign up successful!', 'pear' ),
-				'refferal_link' => filter_var( $_POST['user_refferal']),
+				'message' => __( 'Sign up successful!', 'pear' )
 			] ) );
 		} else {
 			die( json_encode( [

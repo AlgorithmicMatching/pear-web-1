@@ -18,6 +18,31 @@
   #hero-cover {
     background: url('../images/pear_hero_1.png');
     background-color: black;
+
+    &.hero-1 {
+      @media #{$small-and-down} {
+        background-position: 63% 50%!important;
+      }
+      @media #{$extra-small-and-down} {
+        background-position: 47% 50% !important;
+      }
+    }
+    &.hero-2 {
+      @media #{$small-and-down} {
+        background-position: 42% 50%!important;
+      }
+      @media #{$extra-small-and-down} {
+        background-position: 45% 1%!important;
+      }
+    }
+    &.hero-3 {
+      @media #{$small-and-down} {
+        background-position: 32% 1%!important;
+      }
+      @media #{$extra-small-and-down} {
+        background-position: 37% 1%!important;
+      }
+    }
   }
 
   .landing-main {
@@ -55,6 +80,13 @@
 
         .we-promise {
           opacity: 0.5;
+        }
+        .coming-soon {
+          img {
+            max-height: 28px;
+            position: relative;
+            top: 8px;
+          }
         }
       }
 
@@ -108,6 +140,24 @@
           height: 1px;
           background-color: black;
           margin-bottom: 18px;
+        }
+
+        .button-pear-report {
+          position: relative;
+          bottom: 5px;
+          padding-top: 14px;
+
+          @media #{$extra-small-and-down} {
+            margin-top: 25px;
+          }
+
+          img {
+            margin-right: 4px;
+            width: 24px;
+            height: 19px;
+            position: relative;
+            top: 3px;
+          }
         }
       }
     }

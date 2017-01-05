@@ -23,6 +23,19 @@
 
   }
 
+  @media #{$small-and-up} {
+    .iphone-image {
+      transform: scale(0.9);
+    }
+  }
+
+  @media #{$extra-small-and-down} {
+    .iphone-image {
+      margin-top: -30px;
+      transform: scale(0.8);
+    }
+  }
+
   .iphone-image {
     display: inline-block;
     position: relative;
