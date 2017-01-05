@@ -3,6 +3,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<link rel="icon" type="image/x-icon" href="http://www.pear.me/wp-content/themes/pear/dist/images/favicon.ico">
+
 	<!-- Hotjar Tracking Code for www.pear.me -->
 		<script>
 		    (function(h,o,t,j,a,r){
