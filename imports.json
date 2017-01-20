@@ -3,6 +3,7 @@
     "./assets/scripts/lib/jquery-3.1.0.min.js",
     "./assets/scripts/lib/slick.js",
     "./assets/scripts/lib/select2.min.js",
+    "./assets/scripts/lib/swiper.min.js",
     "./assets/scripts/*.js",
     "./node_modules/scrollmagic/scrollmagic/uncompressed/*.js",
     "./node_modules/gsap/src/uncompressed/TweenMax.js",
