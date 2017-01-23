@@ -3091,7 +3091,8 @@ var swiper = new Swiper('.swiper-container', {
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
   autoplay: 2500,
-  loop: true,
+  // loop: true,
+
   keyboardControl: true,
   autoplayDisableOnInteraction: true,
   speed: 800,
