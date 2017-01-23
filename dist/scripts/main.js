@@ -3090,9 +3090,9 @@ var swiper = new Swiper('.swiper-container', {
   paginationClickable: true,
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
-  // mousewheelControl: true,
-  // autoplay: 2500,
-
+  autoplay: 2500,
+  loop: true,
+  keyboardControl: true,
   autoplayDisableOnInteraction: true,
   speed: 800,
   parallax: true
