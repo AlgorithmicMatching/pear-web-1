@@ -19,6 +19,7 @@ class PearSubscriptionForm {
 	public function __construct() {
 		add_filter( 'set-screen-option', [ __CLASS__, 'set_screen' ], 10, 3 );
 		add_action( 'admin_menu', [ $this, 'plugin_menu' ] );
+		add_action( 'admin_post_pr27_export_csv', [ $this, 'pr27_export_csv' ] );
 	}
 
 	public static function set_screen( $status, $option, $value ) {
@@ -37,10 +38,20 @@ class PearSubscriptionForm {
 			6
 		);
 
+		$email = add_menu_page(
+			__( 'Email Content', 'pear' ),
+			__( 'Email Content', 'pear' ),
+			'edit_posts',
+			'pear-email',
+			[ $this, 'email_content' ],
+			'dashicons-email-alt',
+			6
+		);
+
 		add_action( "load-$hook", [ $this, 'screen_option' ] );
-
+		add_action( "load-$email", [ $this, 'email_option' ] );
 	}
-
+		
 	/**
 	 * Screen options
 	 */
@@ -58,16 +69,105 @@ class PearSubscriptionForm {
 		$this->subscription_obj = new Subscriptions_List();
 	}
 
+	public function email_option() {
+       
+	}
+
+	public function email_content() {
+		?>
+		<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  		<script>tinymce.init({ selector:'textarea' });</script>
+  		<?php 	
+		global $wpdb;
+		$table = $wpdb->prefix . 'email';
+		$rows = $wpdb->get_results( "SELECT * FROM $table" );
+  			if (isset($_POST['submit'])) 
+  			{
+
+  					if(empty($_POST['content']))
+  					{
+  						echo "Please add some content.";
+  					}
+  					else
+  					{
+  						if(isset($_POST['id']) && !empty($_POST['id']))
+  						{
+  							$id = array('ID' => $_POST['id']);
+  							$data = array(
+				               'email_content' => htmlspecialchars($_POST['content'])
+				            );
+				            
+				          
+				            $success=$wpdb->update($table,$data,$id);
+				            if($success){
+				            	echo "Data updated successfully.";
+								$rows = $wpdb->get_results( "SELECT * FROM $table" );
+							}
+							else{
+								echo "Please try again, submittion unsuccessful.";
+							}	
+  						}
+  						else{
+		  					$data = array(
+				               'email_content' => htmlspecialchars($_POST['content'])
+				            );
+				          
+				            $success=$wpdb->insert( $table,$data);
+				            if($success){
+				            	echo "Data submitted successfully.";
+								$rows = $wpdb->get_results( "SELECT * FROM $table" );
+							}
+							else{
+								echo "Please try again, submittion unsuccessful.";
+							}
+						}
+  					}
+		            
+					
+			}
+			
+        ?>
+			<div class="wrap">
+			<form method="POST" action="#">
+				<input type="hidden" name="id" value="<?php echo isset($rows[0]->ID)?$rows[0]->ID:''; ?>">
+				<div class="row">
+					<h2>Email Content</h2>
+					 <textarea name="content" cols="3" row="3" placeholder="Enter email content"><?php echo isset($rows[0]->email_content)?$rows[0]->email_content:''; ?></textarea>
+				</div>
+				<br class="clear">	 
+				<button type="submit" name="submit" class="button button-primary"><?php echo isset($rows[0]->ID)?'Update':'Add'; ?></button> 
+			</form>	
+			<?php  ?>
+			</div>	
+		<?php
+		
+	}
+	
 	/**
 	 * Plugin settings page
 	 */
 	public function plugin_settings_page() {
+		global $wpdb;
+		$psf = $wpdb->prefix . 'psf';
+		$rowcount = $wpdb->get_var("SELECT COUNT(*) FROM $psf");
 		?>
 		<div class="wrap">
 			<h2>Subscriptions</h2>
 
 			<div id="poststuff">
 				<div id="post-body" class="metabox-holder columns-2">
+					<div style="float: right;">
+					<label>No. of Records</label>
+						<select name="option" id="option">
+						<option value="" <?php if(!isset($_GET['num'])){echo "selected='selected'";} ?>>Select</option>
+						<option value="5" <?php if(isset($_GET['num']) && $_GET['num'] == 5){echo "selected='selected'";} ?>>5</option>
+						  <option value="15" <?php if(isset($_GET['num']) && $_GET['num'] == 15){echo "selected='selected'";} ?>>15</option>
+						  <option value="50" <?php if(isset($_GET['num']) && $_GET['num'] == 50){echo "selected='selected'";} ?>>50</option>
+						  <option value="100" <?php if(isset($_GET['num']) && $_GET['num'] == 100){echo "selected='selected'";} ?>>100</option>
+						  <option value="200" <?php if(isset($_GET['num']) && $_GET['num'] == 200){echo "selected='selected'";} ?>>200</option>
+						  <option value="<?php echo $rowcount;  ?>" <?php if(isset($_GET['num']) && $_GET['num'] == $rowcount){echo "selected='selected'";} ?>><?php echo $rowcount;  ?></option>
+						</select> 
+					</div>	
 					<div id="post-body-content">
 						<div class="meta-box-sortables ui-sortable">
 							<form method="post">
@@ -81,7 +181,18 @@ class PearSubscriptionForm {
 				</div>
 				<br class="clear">
 			</div>
+
+			<a href="<?php echo admin_url( 'admin-post.php?action=pr27_export_csv' ); ?>" class="button button-primary">Export</a>
 		</div>
+		<script type="text/javascript"> 
+			jQuery( "#option" ).change(function() {
+			  var url = window.location.href;
+	   		  //url = url.slice( 0, url.indexOf('&') );
+	   		  count = this.value;
+
+			  window.location.href = url+"&paged=1&num=" + count; 
+			});
+		</script>
 		<?php
 	}
 
@@ -98,19 +209,34 @@ class PearSubscriptionForm {
 		global $wpdb;
 
 		$table_name      = $wpdb->prefix . 'psf';
+		$email_content      = $wpdb->prefix . 'email';
+
 		$charset_collate = $wpdb->get_charset_collate();
 
-		$sql = "CREATE TABLE $table_name (
+		$sql = "CREATE TABLE IF NOT EXISTS" .$table_name."(
 			`ID` INT NOT NULL AUTO_INCREMENT ,
 			`Name` VARCHAR(255) NOT NULL ,
 			`Email` VARCHAR(255) NOT NULL ,
 			`Age` TINYINT NOT NULL ,
 			`Location` VARCHAR(255) ,
+			`Country` VARCHAR(255) ,
+			`Gender` VARCHAR(255) ,
+			`City` VARCHAR(255) ,
+			`utm_source` VARCHAR(255),
+			'created_date' DATETIME,
+			`refferal_link` VARCHAR(400) ,
+			`unsubscribe` BOOLEAN NOT NULL DEFAULT FALSE,
 			PRIMARY KEY (`ID`),
 		  	UNIQUE KEY `Email` (`Email`)) $charset_collate;";
 
+		$content = "CREATE TABLE IF NOT EXISTS" .$email_content."(
+			`ID` INT NOT NULL AUTO_INCREMENT ,
+			`email_content` VARCHAR(1000) NOT NULL ,
+			PRIMARY KEY (`ID`)) $charset_collate;";  	
+
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
+		dbDelta( $content );
 
 		update_option( "psf_db_version", '1.1' );
 	}
@@ -125,31 +251,99 @@ class PearSubscriptionForm {
 		ob_start(); ?>
 		<div class="mid-section text-center">
 			<div class="pear-logo"></div>
-			<h1>Creating matches, the smart way</h1>
-			<p class="mt0 mb32">Join our community to be among our beta testers or know when Pear will be available in your city</p>
+			<h1>Where science and math meet to find your perfect match</h1>
+			<p class="mt0 mb32 join-com">Join our community to be among our beta testers or know when Pear will be available in
+				your city</p>
 			<div class="row join-form-container">
-				<div class="col-xs-12 col-sm-4">
+				<div class="col-xs-12 col-sm-3 col-sm-offset-2">
 					<input id="name" class="input-boxed" type="text" placeholder="Name" required/>
 				</div>
-				<div class="col-xs-12 col-sm-4">
+				<div class="col-xs-12 col-sm-3">
 					<input id="email" class="input-boxed" type="text" placeholder="Email" required/>
 				</div>
-				<div class="col-xs-12 col-sm-4 select-container" style="z-index:10">
+				<div class="col-xs-12 col-sm-1 select-container" style="z-index:10">
 					<select id="age" class="select-age-home">
 						<option></option>
 					</select>
 				</div>
+				<input type="hidden" name="utm_source" id="source" value="<?php echo empty($_GET['utm_source']) ? "direct" : $_GET['utm_source']; ?>">
+
+				<input type="hidden" name="refferal" id="refferal" value="<?php echo empty($_SERVER['HTTP_REFERER']) ? $_GET['utm_source'] : $_SERVER['HTTP_REFERER']; ?>">
 				<input type="text" name="surname" style="display:none;">
 				<?php echo wp_nonce_field( 'psf_form_submit', 'psf_nonce', true, false ); ?>
-			</div>
-			<div id="psf-submit" class="button green shadow text-uppercase button-join mt40">
+                <div id="psf-submit" class="button green shadow text-uppercase button-join col-sm-2 col-xs-12">
 				<span class="join-text">Join now</span>
 				<img class="loader inactive" src="<?php echo get_template_directory_uri(); ?>/dist/images/loader.svg"/>
 			</div>
-			<p class="mt24 we-promise">We promise to keep our emails to a minimum.</p>
+			</div>
+			
+			<div class="comng-soon">Coming soon to</div>
+            <p class="coming-soon">
+                 <img src="<?php echo get_template_directory_uri(); ?>/dist/images/soon-app-store.png"/>
+                 <span class="seprator">&nbsp;</span>
+                 <img src="<?php echo get_template_directory_uri(); ?>/dist/images/soon-google-play.svg"/ class="no-border">
+            </p>
 		</div>
 		<?php
 		return $html = ob_get_clean();
+	}
+
+	function pr27_export_csv() {
+//		if ( ! wp_verify_nonce( $_POST['pr27_export_csv_nonce'], 'pr27_export_csv' ) ) {
+//			die( 'Invalid nonce.' . var_export( $_POST, true ) );
+//		}
+
+		global $wpdb;
+
+		$wpdb->show_errors();
+
+		$table_name = $wpdb->prefix . 'psf';
+
+		// Build your query
+		$results = $wpdb->get_results( "SELECT `Name`, `Email`, `Age`, 'Gender', `Country`, 'City', 'refferal_link','utm_source','created_date' FROM $table_name" );
+
+		// Process report request
+		if ( ! $results ) {
+			$error = $wpdb->print_error();
+			die( "The following error was found: $error" );
+		} else {
+			// Prepare our csv download
+
+			// Set header row values
+			$output_filename = 'Subscriptions.csv';
+			$output_handle   = @fopen( 'php://output', 'w' );
+
+			header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
+			header( 'Content-Description: File Transfer' );
+			header( 'Content-type: text/csv' );
+			header( 'Content-Disposition: attachment; filename=' . $output_filename );
+			header( 'Expires: 0' );
+			header( 'Pragma: public' );
+
+			$first = true;
+			// Parse results to csv format
+			foreach ( $results as $row ) {
+
+				// Add table headers
+				if ( $first ) {
+					$titles = array();
+					foreach ( $row as $key => $val ) {
+						$titles[] = $key;
+					}
+					fputcsv( $output_handle, $titles );
+					$first = false;
+				}
+
+				$leadArray = (array) $row; // Cast the Object to an array
+				// Add row to file
+				fputcsv( $output_handle, $leadArray );
+			}
+
+			// Close output file stream
+			fclose( $output_handle );
+
+			die();
+		}
 	}
 
 }
@@ -278,6 +472,13 @@ class Subscriptions_List extends WP_List_Table {
 			case 'Name':
 			case 'Age':
 			case 'Location':
+			case 'Country':
+			case 'City':
+			case 'Gender':
+			case 'refferal_link':
+			case 'utm_source':
+			case 'unsubscribe':
+			case 'created_date':
 				return $item[ $column_name ];
 			default:
 				return print_r( $item, true ); //Show the whole array for troubleshooting purposes
@@ -308,7 +509,13 @@ class Subscriptions_List extends WP_List_Table {
 			'name'     => __( 'Name', 'pear' ),
 			'Email'    => __( 'Email', 'pear' ),
 			'Age'      => __( 'Age', 'pear' ),
-			'Location' => __( 'Location', 'pear' )
+			'Gender' => __( 'Gender', 'pear' ),
+			'Country' => __( 'Country', 'pear' ),
+			'City' => __( 'City', 'pear' ),
+			'refferal_link' => __( 'Refferal Link', 'pear' ),
+			'utm_source' => __( 'Utm Source', 'pear' ),
+			'unsubscribe' => __( 'Unsubscribe', 'pear' ),
+			'created_date'=> __( 'Created Date', 'pear' )
 		];
 
 		return $columns;
@@ -324,7 +531,11 @@ class Subscriptions_List extends WP_List_Table {
 			'Name'     => array( 'Name', true ),
 			'Email'    => array( 'Email', false ),
 			'Age'      => array( 'Age', false ),
-			'Location' => array( 'Location', false ),
+			'Country' => array( 'Country', false ),
+			'Gender' => array( 'Gender', true ),
+			'City' => array( 'City', false ),
+			'refferal_link' => array( 'refferal_link', false ),
+			'unsubscribe' => array( 'unsubscribe', true ),
 		);
 
 		return $sortable_columns;
@@ -348,12 +559,18 @@ class Subscriptions_List extends WP_List_Table {
 	 */
 	public function prepare_items() {
 
+	    if(isset($_GET['num'])){
+        	$num = $_GET['num'];
+        }
+        else{
+        	$num = 10;
+        }
 		$this->_column_headers = $this->get_column_info();
 
 		/** Process bulk action */
 		$this->process_bulk_action();
 
-		$per_page     = $this->get_items_per_page( 'subscriptions_per_page', 10 );
+		$per_page     = $this->get_items_per_page( 'subscriptions_per_page', $num );
 		$current_page = $this->get_pagenum();
 		$total_items  = self::record_count();
 

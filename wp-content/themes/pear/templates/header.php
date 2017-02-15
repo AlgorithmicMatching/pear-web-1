@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <?php if ( ! is_home() ) : ?>
 	<div class="burger-menu-overlay">
 		<div></div>
