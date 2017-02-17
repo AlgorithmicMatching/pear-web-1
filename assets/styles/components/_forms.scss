@@ -2,32 +2,52 @@ input {
   width: 100%;
   border: none;
   border-bottom: 1px solid $color-grey-lightest2;
-  font-size: 20px;
+
+  // 20px//
+  font-size: $font-smd;
   outline: none;
   padding-bottom: 10px;
   color: $color-grey-light;
 
   &.input-boxed {
     height: 51px;
-    border-radius: 5px;
-    background-color: white;
-    font-size: 21px;
-    padding-top: 10px;
-    padding-left: 17px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    // 18px //
+    font-size: $font-sm;
+    outline: 0;
+    border: 0;
+    padding: 12px 16px;
+
+    // Small Only
+    @media #{$extra-small-and-down} {
+      // 14px //
+      font-size: $font-xs;
+      height: 44px;
+      padding: 12px;
+    }
   }
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+::-webkit-input-placeholder {
+  // WebKit, Blink, Edge
   color: $color-grey-lightest;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
- color: $color-grey-lightest;
- opacity:  1;
+
+:-moz-placeholder {
+  //Mozilla Firefox 4 to 18
+  color: $color-grey-lightest;
+  opacity: 1;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
- color: $color-grey-lightest;
- opacity:  1;
+
+::-moz-placeholder {
+  //Mozilla Firefox 19+
+  color: $color-grey-lightest;
+  opacity: 1;
 }
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: $color-grey-lightest;
+
+:-ms-input-placeholder {
+  //Internet Explorer 10-11
+  color: $color-grey-lightest;
 }

@@ -1,4 +1,4 @@
-$('.content').css({ height: $(window).innerHeight() > 800 ? $(window).innerHeight() : 800 });
+$('.content').css({ height: $(window).innerHeight() > 840 ? $(window).innerHeight() : 840 });
 
 $(function() {
   //setting screen size
