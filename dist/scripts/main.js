@@ -3114,7 +3114,8 @@ $(function() {
     .setClassToggle("#top-nav", "white") // add class toggle
     .addTo(controller);
 
-  new ScrollMagic.Scene({ triggerElement: "#menu-toggle-indicator", offset: $(window).innerHeight() / 2 - 50 })
+  new ScrollMagic.Scene({ triggerElement: "#menu-toggle-indicator", offset: $(window).innerHeight() / 2 - 50
+ })
     .setClassToggle(".burger-line", 'green')
     .addTo(controller);
 
