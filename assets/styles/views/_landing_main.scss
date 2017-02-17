@@ -126,8 +126,8 @@
 
           // Small Only
           @media #{$extra-small-and-down} {
-            width: 52px;
-            height: 55px;
+            width: 64px;
+            height: 68px;
           }
         }
 
@@ -204,6 +204,57 @@
   }
 
   .landing-about {
+    // Small Only
+    @media #{$extra-small-and-down} {
+      margin: 32px 0;
+    }
+
+    .row {
+      // Medium
+      @media #{$medium-and-up} {
+        margin: 96px 0;
+      }
+
+      & [class*=" col-"], [class^=col-] {
+        // Small Only
+        @media #{$extra-small-and-down} {
+          margin: 16px 0;
+        }
+      }
+    }
+
+    p {
+      // Medium
+      @media #{$medium-and-up} {
+        margin-right: 60px;
+      }
+    }
+
+    h2 {
+      color: $color-green;
+
+      // Small Only
+      @media #{$extra-small-and-down} {
+        font-size: 24px;
+      }
+
+      // Medium
+      @media #{$medium-and-up} {
+        width: 364px;
+      }
+    }
+
+    h3 {
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      // Small Only
+      @media #{$extra-small-and-down} {
+        font-size: 16px;
+      }
+    }
+
     .about-subsection-container {
       display: flex;
       justify-content: space-between;
@@ -230,12 +281,7 @@
 
 // Coming Soon to
 .coming-soon {
-  margin-top: 32px;
-
-  // Medium Up
-  @media #{$medium-and-up} {
-    margin-top: 48px;
-  }
+  margin-top: 48px;
 
   h4 {
     font-size: $font-xs;
@@ -251,10 +297,12 @@
 
 .platform-store {
   display: flex;
+  margin-top: 24px;
 
   // Small Only
   @media #{$extra-small-and-down} {
-    transform: scale(0.9);
+    transform: scale(0.85);
+    margin-top: 16px;
   }
 
   .badge {
