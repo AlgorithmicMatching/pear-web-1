@@ -1,9 +1,10 @@
 .button {
   text-align: center;
-  padding: 15px 0;
+  padding: 15px 30px;
   height: 50px;
   border-radius: 32px;
   cursor: pointer;
+  text-transform: uppercase;
 
   &.green {
     color: white;
@@ -30,4 +31,18 @@
       background-color: $color-green;
     }
   }
+
+  &.medium {
+    height: 44px;
+    font-size: 12px;
+  }
+
+  .icon {
+    float: left;
+    margin: -8px 4px 0 0;
+  }
+}
+
+a.button {
+  text-decoration: none;
 }

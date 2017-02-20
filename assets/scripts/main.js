@@ -169,7 +169,7 @@ var swiper = new Swiper('.swiper-container', {
   paginationClickable: true,
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
-  autoplay: 2500,
+  autoplay: 1800,
   // loop: true,
   keyboardControl: true,
   autoplayDisableOnInteraction: true,

@@ -2,7 +2,7 @@
     Grid
 \*----------------------------------*/
 /*
-	Container and row
+  Container and row
 */
 /* Container main css and it's width */
 .container {
@@ -12,8 +12,8 @@
   padding-left: 12px;
 
   /*
-  	Responsive media query
-  	On Extra-Small screens and down, container is full width
+    Responsive media query
+    On Extra-Small screens and down, container is full width
   */
   /* Width 768px on small devices (768px and more) */
   @media #{$small-and-up} {
@@ -65,6 +65,17 @@
     margin-right: -8px;
     margin-left: -8px;
   }
+
+  &.collapse {
+    // Medium up
+    @media #{$medium-and-up} {
+
+      [class*=' col-'],
+      [class^='col-'] {
+        padding: 0;
+      }
+    }
+  }
 }
 
 /* Main flex class, without this, flex positioning is not working. Use "row" when using columns, if not, use "flex" */
@@ -75,12 +86,12 @@
 }
 
 /*
-	Flex alignment
+  Flex alignment
 */
 .flex {
   /*
     Properties for parents - containers
-  	Direction of displayed flex items
+    Direction of displayed flex items
   */
   /* Direction of items left to right */
   &--row {
@@ -221,7 +232,7 @@
 }
 
 /*
-	Columns
+  Columns
 */
 /* Add padding left and right to all columns. Width: 100% added to fill the container if any column size is not defined */
 [class*=' col-'],
@@ -235,6 +246,10 @@
     padding-right: 8px;
     padding-left: 8px;
     width: 94%;
+  }
+
+  &.collapse {
+    padding: 0;
   }
 }
 

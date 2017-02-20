@@ -2,7 +2,7 @@
     Text
 \*----------------------------------*/
 /*
-	Align
+  Align
 */
 .text-center {
   text-align: center;
@@ -17,7 +17,7 @@
 }
 
 /*
-	Decoration
+  Decoration
 */
 .text-decoration-none {
   text-decoration: none;
@@ -32,7 +32,7 @@ a.text-decoration-none {
 }
 
 /*
-	Transform
+  Transform
 */
 .text-uppercase {
   text-transform: uppercase;
@@ -47,7 +47,7 @@ a.text-decoration-none {
 }
 
 /*
-	Variant
+  Variant
 */
 .text-small-caps {
   font-variant: small-caps;
@@ -62,7 +62,7 @@ h5.text-small-caps {
 }
 
 /*
-	Weight
+  Weight
 */
 .text-thin {
   font-family: 'MontserratLight';
@@ -99,7 +99,7 @@ h5.text-small-caps {
 }
 
 /*
-	Color
+  Color
 */
 
 .text-color-green {
@@ -123,7 +123,7 @@ h5.text-small-caps {
 }
 
 /*
-	Font Size
+  Font Size
 */
 .text-big {
   font-size: 110px;
@@ -138,7 +138,7 @@ h5.text-small-caps {
 }
 
 /*
- 	Text utils
+  Text utils
 */
 .text-clear-space-below {
   float: left;
@@ -150,7 +150,7 @@ h5.text-small-caps {
 }
 
 /*
- 	Text sizes
+  Text sizes
 */
 .text-size-xxs {
   font-size: $font-xxs;
@@ -224,6 +224,11 @@ h2 {
 
 h3 {
   font-size: 20px;
+
+  // Small
+  @media #{$extra-small-and-down} {
+    font-size: 16px;
+  }
 }
 
 h4 {
@@ -240,7 +245,7 @@ p {
 }
 
 /*
-	Transforms
+  Transforms
 */
 
 .text-underlined {
