@@ -1,8 +1,15 @@
 .section-cover {
   &.landing-support {
-    background-color: #FCEDEC;
+    background-color: #7b7372;
     background-image: url("../images/hero-support.png");
     margin-bottom: 32px;
+    background-position: 100% 80%;
+
+    // Small
+    @media #{$extra-small-and-down} {
+      background-image: none;
+      background-color: #FCEDEC;
+    }
   }
 }
 

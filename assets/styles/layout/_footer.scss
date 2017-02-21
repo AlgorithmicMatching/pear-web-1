@@ -11,9 +11,13 @@ footer {
   .row {
     align-items: center;
 
-    [class*=' col-'],
-    [class^='col-'] {
-      padding: 0;
+    // Medium
+    @media #{$medium-and-up} {
+
+      [class*=' col-'],
+      [class^='col-'] {
+        padding: 0;
+      }
     }
   }
 

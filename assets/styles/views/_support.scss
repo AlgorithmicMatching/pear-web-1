@@ -1,4 +1,11 @@
 .support {
+  .container {
+    // Small
+    @media #{$extra-small-and-down} {
+      padding: 0 16px;
+    }
+  }
+
   .item {
     h5 {
       color: $color-green;
