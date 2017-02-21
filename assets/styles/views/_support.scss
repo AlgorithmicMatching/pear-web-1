@@ -1,6 +1,9 @@
 .support {
-
   .item {
+    h5 {
+      color: $color-green;
+      max-width: 90%;
+    }
 
     .desc {
       display: none;
@@ -8,10 +11,13 @@
 
     &.active {
       > .title {
-        color: $color-green;
+        color: $color-black;
+      }
+
+      &:before {
+        transform: rotateX(-180deg);
       }
     }
-
   }
 
   .bullet {

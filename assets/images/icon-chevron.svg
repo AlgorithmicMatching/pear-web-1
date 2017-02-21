@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <polygon id="a" points="915 3.212 916.078 2 925 12 916.078 22 915 20.794 922.839 12"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(-908)">
+    <use fill="#B7BAC1" fill-opacity=".8" transform="rotate(90 920 12)" xlink:href="#a"/>
+  </g>
+</svg>

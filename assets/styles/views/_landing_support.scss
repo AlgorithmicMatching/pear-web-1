@@ -7,17 +7,47 @@
   }
 
   .support-title {
-    background: url('../images/hero-support.png');
+    background: url("../images/hero-support.png");
     background-color: black;
     background-size: cover;
     background-position: 0;
   }
 
   .item {
-    margin: 0 auto;
+    border-bottom: 1px solid rgba(#d8d8d8, 0.4);
+    position: relative;
+    padding: 24px 0;
+    width: 100%;
+
+    // Large
+    @media #{$large-and-up} {
+      padding: 32px 0;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      background: url("../images/icon-chevron.svg") no-repeat;
+      background-size: 100%;
+      display: flex;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      transition: 0.3s ease-in;
+
+      // Small
+      @media #{$extra-small-and-down} {
+        width: 14px;
+        height: 14px;
+      }
+    }
   }
 
-  .button {
-    margin: 0 auto;
+  .desc {
+    color: rgba(#000, 0.5);
+    font-size: $font-xs;
+    margin-top: 16px;
   }
 }
