@@ -1,32 +1,17 @@
+$(function() { // wait for document ready
 
+    $('.support .item').on('click', function() {
 
-$(function () { // wait for document ready
+        if ($(this).hasClass('active'))
+            $(this).removeClass('active')
+        else
+            $(this).addClass('active').siblings().removeClass('active')
 
-  if(!$('.support')[0]) {
-    return;
-  }
+        var speed = 300;
 
-  $('.support .item.active .desc').show();
+        $('.support .item:not(.active) .desc:visible').slideUp(speed)
+        $('.support .item.active .desc').slideDown(speed)
 
-  $('.support .item .title').click(function () {
-
-    if($(this).parent().hasClass('active')) {
-      $('.support .item.active .desc').slideUp(500);
-
-      $('.support .item').removeClass('active');
-      return;
-    }
-
-    var speed = 500;
-
-    $('.support .item.active .desc').slideUp(500);
-
-    $('.support .item').removeClass('active');
-
-    $(this).parent().addClass('active');
-
-    $('.support .item.active .desc').slideDown(500);
-
-  });
+    })
 
 });
