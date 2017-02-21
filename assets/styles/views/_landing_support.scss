@@ -1,16 +1,14 @@
-.landing-support {
-  .support-container {
-    @media #{$extra-small-and-down} {
-      width: 80%;
-      margin: 0 auto !important;
-    }
+.section-cover {
+  &.landing-support {
+    background-color: #FCEDEC;
+    background-image: url("../images/hero-support.png");
+    margin-bottom: 32px;
   }
+}
 
-  .support-title {
-    background: url("../images/hero-support.png");
-    background-color: black;
-    background-size: cover;
-    background-position: 0;
+.landing-support {
+  .section-title {
+    background: #FCEDEC;
   }
 
   .item {
@@ -46,6 +44,7 @@
   }
 
   .desc {
+    margin: 0 auto;
     color: rgba(#000, 0.5);
     font-size: $font-xs;
     margin-top: 16px;
