@@ -9,6 +9,10 @@
       display: none;
     }
 
+    &:before{
+        cursor: pointer;
+    }
+
     &.active {
       > .title {
         color: $color-black;

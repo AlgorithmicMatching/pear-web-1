@@ -146,7 +146,7 @@ $(function() {
 
   }
 
-  setTimeout(loadimg, 5000);
+  //setTimeout(loadimg, 5000);
 
   /*
     NOBEL PRIZE HEIGHT
