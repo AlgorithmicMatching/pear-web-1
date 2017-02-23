@@ -8,7 +8,7 @@ $(function() {
 
   $(window).on('scroll',function(){
       var top  = window.pageYOffset || document.documentElement.scrollTop;
-      if (top>20)
+      if (top>17)
           $('#top-nav').addClass('white')
       else {
           $('#top-nav').removeClass('white')
@@ -37,17 +37,20 @@ $(function() {
 
 
 
-  new ScrollMagic.Scene({ triggerElement: "#nav-home-trigger", duration: $(".landing-home").height() + 32 })
+  if ($("#nav-home-trigger").length)
+  new ScrollMagic.Scene({ triggerElement: "#nav-home-trigger", duration: $(".landing-hero").height() + 32 })
     .setClassToggle("#nav-home", "active") // add class toggle
     .addTo(controller);
 
 
   //SHOULD BE THE SAME AS IN mobile.js (MAKE COMMON)
 
+  if ($("#nav-about-trigger").length)
   new ScrollMagic.Scene({ triggerElement: "#nav-about-trigger", duration: $(".landing-blog").position().top - $('#nav-about-trigger').position().top})
     .setClassToggle("#nav-about", "active") // add class toggle
     .addTo(controller);
 
+  if ($("#nav-blog-trigger").length)
   new ScrollMagic.Scene({ triggerElement: "#nav-blog-trigger", duration: $("#nav-support-trigger").position().top-$("#nav-blog-trigger").position().top})
     .setClassToggle("#nav-blog", "active") // add class toggle
     .addTo(controller);
@@ -56,6 +59,7 @@ $(function() {
   //   .setClassToggle("#nav-media", "active") // add class toggle
   //   .addTo(controller);
 
+  if ($("#nav-support-trigger").length)
   new ScrollMagic.Scene({ triggerElement: "#nav-support-trigger", duration: $("footer").position().top-$("#nav-support-trigger").position().top })
     .setClassToggle("#nav-support", "active") // add class toggle
     .addTo(controller);

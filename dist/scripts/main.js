@@ -3026,48 +3026,35 @@ $(function() {
     IMAGE SEQUENCE HERO
   */
 
-  var heroImages = Array("images/pear_hero_1.png",
-    "images/pear_hero_2.png",
-    "images/pear_hero_3.png");
-
-  var heroCurImage = 0;
+  var heroCurImage = -1;
+  var heroCount = $('.hero-cover figure').length;
 
   function loadimg() {
 
-    $('#hero-cover').animate({ opacity: 1 }, 1000, function() {
+      var last;
 
-      //finished animating, minifade out and fade new back in
-      $('#hero-cover').animate({ opacity: 0.7 }, 200, function() {
+      if (heroCurImage >= 0)
+        last = $('.hero-cover figure:eq(' + heroCurImage + ')')
 
-        heroCurImage++;
+      if (last)
+        setTimeout(function() {
+          last.hide()
+        }, 1000 * 10)
 
-        if (heroCurImage > heroImages.length - 1) {
+      heroCurImage += 1;
 
-          heroCurImage = 0;
+      if (heroCurImage == heroCount) heroCurImage = 0;
 
-        }
+      var nx = $('.hero-cover figure:eq(' + heroCurImage + ')')
 
-        var newimage = heroImages[heroCurImage];
+      nx.show()
 
-        //swap out bg src
-        $('#hero-cover').css("background", "url(" + newimage + ")");
-        $('#hero-cover').css("background-color", "black");
-
-        //animate fully back in
-        $('#hero-cover').animate({ opacity: 1 }, 400, function() {
-
-          //set timer for next
-          setTimeout(loadimg, 5000);
-
-        });
-
-      });
-
-    });
+      to = setTimeout(loadimg, 1000 * 30)
 
   }
 
-  //setTimeout(loadimg, 5000);
+  loadimg()
+
 
   /*
     NOBEL PRIZE HEIGHT
@@ -3090,11 +3077,11 @@ var swiper = new Swiper('.swiper-container', {
   paginationClickable: true,
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
-  autoplay: 1800,
-  // loop: true,
+  autoplay: 5000,
+  loop: true,
   keyboardControl: true,
   autoplayDisableOnInteraction: true,
-  speed: 800,
+  speed: 1000,
   parallax: true
 });
 
@@ -3108,7 +3095,7 @@ $(function() {
 
   $(window).on('scroll',function(){
       var top  = window.pageYOffset || document.documentElement.scrollTop;
-      if (top>20)
+      if (top>17)
           $('#top-nav').addClass('white')
       else {
           $('#top-nav').removeClass('white')
@@ -3137,17 +3124,20 @@ $(function() {
 
 
 
-  new ScrollMagic.Scene({ triggerElement: "#nav-home-trigger", duration: $(".landing-home").height() + 32 })
+  if ($("#nav-home-trigger").length)
+  new ScrollMagic.Scene({ triggerElement: "#nav-home-trigger", duration: $(".landing-hero").height() + 32 })
     .setClassToggle("#nav-home", "active") // add class toggle
     .addTo(controller);
 
 
   //SHOULD BE THE SAME AS IN mobile.js (MAKE COMMON)
 
+  if ($("#nav-about-trigger").length)
   new ScrollMagic.Scene({ triggerElement: "#nav-about-trigger", duration: $(".landing-blog").position().top - $('#nav-about-trigger').position().top})
     .setClassToggle("#nav-about", "active") // add class toggle
     .addTo(controller);
 
+  if ($("#nav-blog-trigger").length)
   new ScrollMagic.Scene({ triggerElement: "#nav-blog-trigger", duration: $("#nav-support-trigger").position().top-$("#nav-blog-trigger").position().top})
     .setClassToggle("#nav-blog", "active") // add class toggle
     .addTo(controller);
@@ -3156,6 +3146,7 @@ $(function() {
   //   .setClassToggle("#nav-media", "active") // add class toggle
   //   .addTo(controller);
 
+  if ($("#nav-support-trigger").length)
   new ScrollMagic.Scene({ triggerElement: "#nav-support-trigger", duration: $("footer").position().top-$("#nav-support-trigger").position().top })
     .setClassToggle("#nav-support", "active") // add class toggle
     .addTo(controller);
@@ -3282,6 +3273,8 @@ $(function () { // wait for document ready
 
 $(function() { // wait for document ready
 
+    var speed = 300;
+
   $('.support .item').on('click', function() {
 
     if ($(this).hasClass('active'))
@@ -3289,13 +3282,21 @@ $(function() { // wait for document ready
     else
       $(this).addClass('active').siblings().removeClass('active')
 
-    var speed = 300;
-
     $('.support .item:not(.active) .desc:visible').slideUp(speed)
     $('.support .item.active .desc').slideDown(speed)
 
   })
-  $(function() { $("#view-faq").click(function() { $(".desc").toggle(); }) }),
+
+  $(function() { $("#view-faq").click(function() {
+      if ($(this).text() === 'View All') {
+          $('.support .item').addClass('active')
+          $(".desc").slideDown(speed);
+      }
+      else {
+          $('.support .item').removeClass('active')
+          $(".desc").slideUp(speed);
+      }
+  }) }),
     $(function() {
       $("#view-faq").click(function() {
         $(this).text(function(i, v) {

@@ -475,7 +475,9 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     position: absolute;
+    display: none;
     top: 0;
     left: 0;
     color: #fff;
@@ -505,16 +507,19 @@
 
 .hero-cover-2 {
   background-image: url(../images/pear_hero_2.png);
+  transform-origin: bottom right;
 }
 
 .hero-cover-3 {
   background-image: url(../images/pear_hero_3.png);
+  transform-origin: top center;
 }
 
 // Kenburns Effect
 @keyframes kenburns {
   0% {
     opacity: 0;
+    filter:blur(5px);
     transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
   }
 
@@ -523,6 +528,7 @@
   }
 
   50% {
+      filter:blur(0px);
     transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
   }
 

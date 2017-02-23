@@ -105,48 +105,35 @@ $(function() {
     IMAGE SEQUENCE HERO
   */
 
-  var heroImages = Array("images/pear_hero_1.png",
-    "images/pear_hero_2.png",
-    "images/pear_hero_3.png");
-
-  var heroCurImage = 0;
+  var heroCurImage = -1;
+  var heroCount = $('.hero-cover figure').length;
 
   function loadimg() {
 
-    $('#hero-cover').animate({ opacity: 1 }, 1000, function() {
+      var last;
 
-      //finished animating, minifade out and fade new back in
-      $('#hero-cover').animate({ opacity: 0.7 }, 200, function() {
+      if (heroCurImage >= 0)
+        last = $('.hero-cover figure:eq(' + heroCurImage + ')')
 
-        heroCurImage++;
+      if (last)
+        setTimeout(function() {
+          last.hide()
+        }, 1000 * 10)
 
-        if (heroCurImage > heroImages.length - 1) {
+      heroCurImage += 1;
 
-          heroCurImage = 0;
+      if (heroCurImage == heroCount) heroCurImage = 0;
 
-        }
+      var nx = $('.hero-cover figure:eq(' + heroCurImage + ')')
 
-        var newimage = heroImages[heroCurImage];
+      nx.show()
 
-        //swap out bg src
-        $('#hero-cover').css("background", "url(" + newimage + ")");
-        $('#hero-cover').css("background-color", "black");
-
-        //animate fully back in
-        $('#hero-cover').animate({ opacity: 1 }, 400, function() {
-
-          //set timer for next
-          setTimeout(loadimg, 5000);
-
-        });
-
-      });
-
-    });
+      to = setTimeout(loadimg, 1000 * 30)
 
   }
 
-  //setTimeout(loadimg, 5000);
+  loadimg()
+
 
   /*
     NOBEL PRIZE HEIGHT
@@ -169,10 +156,10 @@ var swiper = new Swiper('.swiper-container', {
   paginationClickable: true,
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
-  autoplay: 1800,
-  // loop: true,
+  autoplay: 5000,
+  loop: true,
   keyboardControl: true,
   autoplayDisableOnInteraction: true,
-  speed: 800,
+  speed: 1000,
   parallax: true
 });
