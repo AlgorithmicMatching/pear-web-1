@@ -1,4 +1,11 @@
 .support {
+  .container {
+    // Small
+    @media #{$extra-small-and-down} {
+      padding: 0 16px;
+    }
+  }
+
   .item {
     h5 {
       color: $color-green;
@@ -23,7 +30,9 @@
       }
     }
   }
+}
 
+<<<<<<< HEAD
   .bullet {
     height: 7px;
     width: 7px;
@@ -32,3 +41,11 @@
     margin: 0 auto;
   }
 }
+=======
+#view-faq {
+  color: $color-green;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+>>>>>>> ba9ef85da3cd101b7a25f0b0c75f2d4cdc9f7130

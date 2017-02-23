@@ -3067,7 +3067,7 @@ $(function() {
 
   }
 
-  setTimeout(loadimg, 5000);
+  //setTimeout(loadimg, 5000);
 
   /*
     NOBEL PRIZE HEIGHT
@@ -3104,15 +3104,31 @@ $(function() {
     return;
   }
 
+  //new top nav transition
+
+  $(window).on('scroll',function(){
+      var top  = window.pageYOffset || document.documentElement.scrollTop;
+      if (top>20)
+          $('#top-nav').addClass('white')
+      else {
+          $('#top-nav').removeClass('white')
+      }
+  })
+
+  if (window.pageYOffset || document.documentElement.scrollTop)
+    $('#top-nav').addClass('white')
+
+    //new top nav transition
+
   var controller = new ScrollMagic.Controller();
   controller.scrollTo(function(newScrollPos) {
     $("html, body").animate({ scrollTop: newScrollPos });
   });
 
   // build scenes
-  new ScrollMagic.Scene({ triggerElement: "#menu-toggle-indicator", })
-    .setClassToggle("#top-nav", "white") // add class toggle
-    .addTo(controller);
+  // new ScrollMagic.Scene({ triggerElement: "#menu-toggle-indicator", })
+  //   .setClassToggle("#top-nav", "white") // add class toggle
+  //   .addTo(controller);
 
   new ScrollMagic.Scene({ triggerElement: "#menu-toggle-indicator", offset: $(window).innerHeight() / 2 - 50
  })
@@ -3127,29 +3143,25 @@ $(function() {
 
 
   //SHOULD BE THE SAME AS IN mobile.js (MAKE COMMON)
-  var viewVisible = 200;
-  var viewTransition = 150;
-  var baseOffset = 260;
 
-
-  new ScrollMagic.Scene({ triggerElement: "#nav-about-trigger", duration: $(".landing-about").height() + viewVisible * 6 + viewTransition * 5 + baseOffset - 60 })
+  new ScrollMagic.Scene({ triggerElement: "#nav-about-trigger", duration: $(".landing-blog").position().top - $('#nav-about-trigger').position().top})
     .setClassToggle("#nav-about", "active") // add class toggle
     .addTo(controller);
 
-  new ScrollMagic.Scene({ triggerElement: "#nav-blog-trigger", duration: $(".landing-blog").height() + $(".blog").height() + 98 })
+  new ScrollMagic.Scene({ triggerElement: "#nav-blog-trigger", duration: $("#nav-support-trigger").position().top-$("#nav-blog-trigger").position().top})
     .setClassToggle("#nav-blog", "active") // add class toggle
     .addTo(controller);
 
-  new ScrollMagic.Scene({ triggerElement: "#nav-media-trigger", duration: $(".landing-press").height() })
-    .setClassToggle("#nav-media", "active") // add class toggle
-    .addTo(controller);
+  // new ScrollMagic.Scene({ triggerElement: "#nav-media-trigger", duration: $(".landing-press").height() })
+  //   .setClassToggle("#nav-media", "active") // add class toggle
+  //   .addTo(controller);
 
-  new ScrollMagic.Scene({ triggerElement: "#nav-support-trigger", duration: $(".landing-support").height() })
+  new ScrollMagic.Scene({ triggerElement: "#nav-support-trigger", duration: $("footer").position().top-$("#nav-support-trigger").position().top })
     .setClassToggle("#nav-support", "active") // add class toggle
     .addTo(controller);
-  new ScrollMagic.Scene({ triggerElement: "#nav-launch-trigger", duration: $(".landing-launch").height() })
-    .setClassToggle("#nav-launch", "active") // add class toggle
-    .addTo(controller);
+  // new ScrollMagic.Scene({ triggerElement: "#nav-launch-trigger", duration: $(".landing-launch").height() })
+  //   .setClassToggle("#nav-launch", "active") // add class toggle
+  //   .addTo(controller);
 
   $(document).on("click", ".nav-item", function(e) {
     var id = $(this).attr("id");
@@ -3268,36 +3280,29 @@ $(function () { // wait for document ready
 
 	});
 
+$(function() { // wait for document ready
 
+  $('.support .item').on('click', function() {
 
-$(function () { // wait for document ready
+    if ($(this).hasClass('active'))
+      $(this).removeClass('active')
+    else
+      $(this).addClass('active').siblings().removeClass('active')
 
-  if(!$('.support')[0]) {
-    return;
-  }
+    var speed = 300;
 
-  $('.support .item.active .desc').show();
+    $('.support .item:not(.active) .desc:visible').slideUp(speed)
+    $('.support .item.active .desc').slideDown(speed)
 
-  $('.support .item .title').click(function () {
-
-    if($(this).parent().hasClass('active')) {
-      $('.support .item.active .desc').slideUp(500);
-
-      $('.support .item').removeClass('active');
-      return;
-    }
-
-    var speed = 500;
-
-    $('.support .item.active .desc').slideUp(500);
-
-    $('.support .item').removeClass('active');
-
-    $(this).parent().addClass('active');
-
-    $('.support .item.active .desc').slideDown(500);
-
-  });
+  })
+  $(function() { $("#view-faq").click(function() { $(".desc").toggle(); }) }),
+    $(function() {
+      $("#view-faq").click(function() {
+        $(this).text(function(i, v) {
+          return v === 'View All' ? 'Close All' : 'View All'
+        })
+      })
+    })
 
 });
 

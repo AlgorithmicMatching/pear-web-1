@@ -35,11 +35,23 @@
   &.medium {
     height: 44px;
     font-size: 12px;
+
+    // Small
+    @media #{$extra-small-and-down} {
+      font-size: 10px;
+      padding: 12px 20px;
+      height: 36px;
+    }
   }
 
   .icon {
     float: left;
     margin: -8px 4px 0 0;
+
+    // Small
+    @media #{$extra-small-and-down} {
+      margin-top: -5px;
+    }
   }
 }
 
