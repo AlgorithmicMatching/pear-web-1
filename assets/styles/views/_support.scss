@@ -16,8 +16,8 @@
       display: none;
     }
 
-    &:before{
-        cursor: pointer;
+    &:before {
+      cursor: pointer;
     }
 
     &.active {
@@ -30,12 +30,11 @@
       }
     }
   }
+}
 
-  .bullet {
-    height: 7px;
-    width: 7px;
-    background-color: $color-green;
-    border-radius: 50%;
-    margin: 0 auto;
-  }
+#view-faq {
+  color: $color-green;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
 }

@@ -1,57 +1,168 @@
-@@include('./_includes/head.html', {
-	"title": "Support"
-})
-@@include('./_includes/top_nav_static.html')
-<div class="support content pl16 pr16">
-  <div class="row flex--justify-center">
-    <div class="col-xs-12 col-sm-8 text-center mt84 pt96">
-      <h3 class="text-uppercase margin0">Support</h3>
+@@include('./_includes/head.html', { "title": "Support" }) @@include('./_includes/top_nav_static.html')
+<!--FAQ List-->
+<div class="landing-support support content-inner">
+  <div class="container col-md-9">
+    <div class="content-inner-title">
+      <div class="row">
+        <h2>Support</h2>
+        <div id="view-faq">View All</div>
+      </div>
     </div>
-
-		<div class="item col-xs-12 col-sm-8 text-center pt72">
-			<p class="text-size-md margin0 clickable title">Where can I download Pear?</p>
-			<p class="text-color-black text-size-xs text-thin desc">
-				Pear is currently available for download only in test-mode. Fill in the form to be invited to test the application and be notified of when we launch in your city. We are coming soon! 
-			</p>
-			<div class="bullet mt24 mb24"></div>
-		</div>
-
-		<div class="item col-xs-12 col-sm-8 text-center">
-			<p class="text-size-md margin0 clickable title">Why sign in through Facebook?</p>
-			<p class="text-color-black text-size-xs text-thin desc">
-				We require you to sign up with Facebook as it drastically reduces the number of fake accounts.
-			</p>
-			<div class="bullet mt24 mb24"></div>
-		</div>
-
-		<div class="item col-xs-12 col-sm-8 text-center">
-			<p class="text-size-md margin0 clickable title">How do I personalize my profile?</p>
-			<p class="text-color-black text-size-xs text-thin desc">
-				Once you sign up you’ll be directed to the profile page. You can then upload up to 5 pictures and edit your bio. Your name and age will be displayed automatically.
-			</p>
-			<div class="bullet mt24 mb24"></div>
-		</div>
-
-		<div class="item col-xs-12 col-sm-8 text-center">
-			<p class="text-size-md margin0 clickable title">Why am I asked to look at two profiles of potential partners at once?</p>
-			<p class="text-color-black text-size-xs text-thin desc">
-				Let’s say you are showed Charlie and Jessie. When you click on the Pear icon in Jessie’s pic, you are telling us that you like Jessie more than Charlie. By asking you to perform more comparisons, we can figure out who you like more from who you like less. The more you compare, the more we learn about you, the more your matches improve. So keep comparing!
-			</p>
-			<div class="bullet mt24 mb24"></div>
-		</div>
-
-		<div class="item col-xs-12 col-sm-8 text-center pb96">
-			<p class="text-size-md margin0 clickable title">Why do I have a fixed number of matches?</p>
-			<p class="text-color-black text-size-xs text-thin desc">
-				We want to create matches that matter. We don’t match you with just about anyone that likes you and you like back. We pair you with the selected few you like the most, that also like you back.
-			</p>
-		</div>
-
-		<div class="email col-xs-12 col-sm-5 pb96 text-center">
-			<img src="images/mail-icon.svg" style="height: 80px; width: 80px;" />
-			<p class="text-size-xs margin0 text-thin">If you have other questions, or other technical issues, please contact us at <a class="text-link" href="mailto:support@pear.com">support@pear.com</a></p>
-		</div>
+    <div class="row">
+      <div class="item">
+        <h5 class="clickable title">Where can I download Pear?</h5>
+        <p class="desc">Read how the app works and how the algorithm works on our blog posts.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">What are the core ideas behind Pear?</h5>
+        <p class="desc">We require you to sign up with Facebook as it drastically reduces the number of fake accounts.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How do I get started immediately with using the app?</h5>
+        <p class="desc">Simply log-in with Facebook and add a pic to your profile. Then move to the comparison screen where you will be asked to compare couple of users and pick your preferred one. Keep comparing and your matches will appear. At that point, you will be also able to open a chat and talk with your matches.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Why sign in through Facebook?</h5>
+        <p class="desc">We require you to sign in with Facebook as it will drastically reduce the creation of fake accounts.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Why does Pear need to access Facebook information?</h5>
+        <p class="desc">When signing in with Facebook, we will access important information such as name and age. We do this in order to ensure that the information everyone provides is reliable. Moreover, we anonymize the information we collect and use it to create a behavioral report that gives subscribing users feedback on their attractiveness.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How does pear treat my personal information?</h5>
+        <p class="desc">To learn about what we do with personal information, please read our >Privacy Policy.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Will the app post on my Facebook page?</h5>
+        <p class="desc">No, don’t worry, this will NOT happen! We care about your privacy and we will not post information on your profile without your permission.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Does it work for all sexualities?</h5>
+        <p class="desc">Unfortunately, the algorithm requires participating users to be divided in two sides. Therefore, at present, it does not work if you are looking for people of the same sex. We would like everyone, regardless of their sexual orientation to join our community; we are working on creating a new algorithm that works for all. So stay tuned!</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Why do you need access to my phone gallery?</h5>
+        <p class="desc">We need your permission to open your phone gallery when/if you want to add a picture on your profile.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">What is the minimum age requirement?</h5>
+        <p class="desc">Pear users must be 18 or over.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">What are the norms that regulate the interaction between us and you?</h5>
+        <p class="desc">lease read Terms and Conditions carefully to be familiar with the rules and safe guards of the App.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How can I add/change pictures?</h5>
+        <p class="desc">You can add pictures directly from your camera roll. It is possible to add a maximum of 5 pictures. To do this, go on your profile page and click on “ADD PHOTO” to upload a new one or on an existing picture to change it to a different one! You can delete pictures by clicking on a picture and then on “Delete Photo”.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Why should I post more than one picture?</h5>
+        <p class="desc">Studies have proved that users with a high number of pictures on their profile have higher chances of being when compared to others.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Can I change my name or age?</h5>
+        <p class="desc">This information is taken from your Facebook profile, so no, it is not possible to change it without changing your Facebook profile. We will not disclose any information regarding your last name.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Can I change my location?</h5>
+        <p class="desc">No, it is not possible to change or input your location. It will be automatically detected by your phone’s GPS.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Does the GPS locator always have to be on?</h5>
+        <p class="desc">To find a “pear” in your location, we need to access your location. We only record your position when you activate the app. Otherwise, pear app will use the last location recorded.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">“There is nobody around you?” how can I solve this problem?</h5>
+        <p class="desc">This means that there are no new users available in the area you selected. To solve this problem, you can try to change the age and the distance restrictions.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Is it possible to use the app offline?</h5>
+        <p class="desc">No, it is not possible to use the app offline, as it will not be possible to chat with other users or find new users to compare.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How do I turn on/off the notifications?</h5>
+        <p class="desc">You can turn on/off the notifications from the settings page. If you turn off notifications you will not be notified when you receive a new message or a new match.
+        </p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How can I restrict the age and distance of the users I am interested in?</h5>
+        <p class="desc">You can change these features in the settings’ page, adjusting the age bar and the distance bar according to your preferences.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Can I hide my account?</h5>
+        <p class="desc">Yes! If you don’t want to use the account for a while, you can hide it. Please note, you will not appear to possible new matches. You will only remain visible to your current matches (unless you un-match them of course).</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How do I delete my account?</h5>
+        <p class="desc">Deleting your account it is easy. Just go to settings, scroll down and click on the “Delete Your Account” button. We would be sorry to see you leave, but we hope it would be because you found your “pear”! Note that deletion cannot be undone and you will lose all your matches.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">What are the main screens of the app?</h5>
+        <p class="desc">The app is very simple. There is a settings page where you set your age/location restrictions, your notification settings, and so on. There is a profile page where you can build your profile. The core of the app is the comparison screen, where you are showed two users at a time and are asked to prefer one of them. Finally, there is the match screen that contains all your matches. Go on the match page to start chatting with your matches.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How does the comparison screen work?</h5>
+        <p class="desc">We will show you two profiles at the time, and we expect you to decide with each profile which you prefer among the two users. To express the preference for a user, click on the Pear logo on the user’s picture! Your preferences will remain private and will never be disclosed to anybody, except in an anonymous way.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Why do I keep seeing the same profiles in the comparison screen?</h5>
+        <p class="desc">You never get to see the same couple of profiles twice, but you may see the same profile multiple times. In fact, as you keep comparing other users, our algorithm will keep track of your preferences, basically ranking all previously seen users from the one you like most to the one you like least. Therefore, when you are shown a new user, in order to determine his or her ranking, the algorithm needs to compare this person with people you have already ranked.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How can I talk to someone?</h5>
+        <p class="desc">It is possible to chat with a user only IF the algorithm matches you with that person. That way, we make sure that the set of people who can message you is limited and selected.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Where can I see my matches?</h5>
+        <p class="desc">It is possible to chat with a user only IF the algorithm matches you with that person. That way, we make sure that the set of people who can message you is limited and selected.
+        </p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Why are my matches divided between “Stable” and “Expiring”?</h5>
+        <p class="desc">A match is a match, whether it is stable or expiring. However, there are two main differences between stable and expiring matches. Firstly, while stable matches are stable, your expiring matches will expire after a predetermined period of time! Secondly, while there is a limited number of stable matches you can have at each point in time, the number of expiring matches is not bounded. Initially all new matches are stable, but then some (or all of them) can be replaced by other stable matches and turn into expiring matches.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How do I delete my account?</h5>
+        <p class="desc">Deleting your account it is easy. Just go to settings, scroll down and click on the “Delete Your Account” button. We would be sorry to see you leave, but we hope it would be because you found your “pear”! Note that deletion cannot be undone and you will lose all your matches.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">Why do you let some matches expire?</h5>
+        <p class="desc">We let matches expires in order to keep everyone’s activity on the App focused on a limited set of people. We believe that this is important to increase the value of your matches.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">When does a stable match turn into an expiring one?</h5>
+        <p class="desc">Deleting your account it is easy. Just go to settings, scroll down and click on the “Delete Your Account” button. We would be sorry to see you leave, but we hope it would be because you found your “pear”! Note that deletion cannot be undone and you will lose all your matches.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">A match has expired, how can I recover it?</h5>
+        <p class="desc">Once a match has expired is not possible to recover it. We encourage you to move the action offline with those expiring matches that you want to preserve.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">I have a match and I want to look at his/her profile again, how can I do it?</h5>
+        <p class="desc">It is possible to look at the user’s profile again by clicking on their picture.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">How do I delete my account?</h5>
+        <p class="desc">Deleting your account it is easy. Just go to settings, scroll down and click on the “Delete Your Account” button. We would be sorry to see you leave, but we hope it would be because you found your “pear”! Note that deletion cannot be undone and you will lose all your matches.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">One of the matches received is not behaving appropriately, how can I report it?</h5>
+        <p class="desc">It is possible to report a user by opening the chat with him, clicking to the bottom on the top right corner and select report. You can then decide on the reason why you want to report the user and proceed.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">I have some questions or I want to leave some comments, how can I do it?</h5>
+        <p class="desc">To do so, you have to go in “Settings”. Under the section “Support and Feedback”, select “Leave feedback” if you want to let us know what you think about us or if you have any suggestions. Select “Support” if you are facing any issues with the app.</p>
+      </div>
+      <div class="item">
+        <h5 class="clickable title">What is the pear attractiveness report?</h5>
+        <p class="desc">To learn what the attractiveness report is please read <a href="/#nav-about-trigger">here</a>.</p>
+      </div>
+    </div>
+    <p>If you have other questions, or other technical issues, please contact us at <a href="mailto:support@pear.com">support@pear.com</a></p>
   </div>
 </div>
-
+<!--End of FAQ List-->
 @@include('./_includes/footer.html')
+
