@@ -91,6 +91,7 @@ img {
   h5 {
     margin-top: 24px;
     width: 100%;
+    line-height: 1.5;
   }
 
   ul {
@@ -103,5 +104,56 @@ img {
       family: MontserratLight;
     };
     padding-bottom: 16px;
+  }
+
+  p {
+    // Small
+    @media #{$extra-small-and-down} {
+      font-size: 12px;
+    }
+  }
+}
+
+.cookies-consent {
+  background: #fff;
+  border-top: 1px solid rgba(#D8D8D8, 0.7);
+  position: fixed;
+  padding: 6px 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+
+  // Small
+  @media #{$extra-small-and-down} {
+    padding: 8px 0 24px;
+  }
+
+  // Medium
+  @media #{$small-and-down} and (orientation: portrait) {
+    padding: 8px 0 24px;
+  }
+
+  p {
+    font-size: 14px;
+    margin-right: 24px;
+
+    // Small
+    @media #{$extra-small-and-down} {
+      margin-right: 0;
+    }
+  }
+
+  .row {
+    align-items: center;
+
+    // Medium
+    @media #{$medium-and-up} {
+      justify-content: center;
+    }
+
+    // Small
+    @media #{$extra-small-and-down} {
+      justify-content: flex-start;
+    }
   }
 }

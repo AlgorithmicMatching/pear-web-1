@@ -94,6 +94,15 @@
         display: none;
       }
     }
+
+    .burger-menu {
+      top: 24px;
+      right: 24px;
+
+      .burger-line {
+        background: $color-green;
+      }
+    }
   }
 
   .nav-container {

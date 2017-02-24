@@ -486,6 +486,11 @@
     margin: 0;
     animation: kenburns 40s ease infinite;
 
+    // Small - Device only
+    @media only screen and (max-device-width: 479px) {
+      background-attachment: scroll;
+    }
+
     &:before {
       content: '';
       display: block;
@@ -519,7 +524,7 @@
 @keyframes kenburns {
   0% {
     opacity: 0;
-    filter:blur(5px);
+    filter: blur(3px);
     transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
   }
 
@@ -528,7 +533,7 @@
   }
 
   50% {
-      filter:blur(0px);
+    filter: blur(0px);
     transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
   }
 

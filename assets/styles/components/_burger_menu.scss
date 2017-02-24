@@ -6,21 +6,20 @@
   position: fixed;
   top: 32px;
   right: 32px;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   z-index: 1000;
 
   .burger-line {
-    width: 30px;
-    margin-bottom: 8px;
-    background-color: #fff;
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    width: 24px;
     height: 2px;
     transition: all ease-out 0.5s;
     transform-origin: center left;
     position: relative;
-
-    &.burger-line-top {}
 
     &.burger-line-middle {
       opacity: 1;
@@ -52,8 +51,8 @@
 }
 
 .burger-menu-overlay {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 10%;
+  padding-bottom: 10%;
   position: fixed;
   top: 0;
   left: 0;
@@ -67,7 +66,7 @@
   text-align: center;
   display: none;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   font-family: 'MontserratLight';
 
   // &.visible {
@@ -75,12 +74,14 @@
   // }
 
   .nav-item {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 100;
-    color: $color_grey_light;
+    color: rgba(#000, 0.25);
+    padding: 20px 0;
+    text-transform: capitalize;
 
     &.active {
-      color: black;
+      color: $color-green;
     }
   }
 }
