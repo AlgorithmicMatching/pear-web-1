@@ -382,19 +382,6 @@
   margin: auto;
   max-width: 1440px;
 
-  // Section Title - Position
-
-  &.right {
-    .section-title {
-      // Medium
-      @media #{$small-and-up} {
-        position: absolute;
-        right: 0;
-        padding: 0 80px;
-      }
-    }
-  }
-
   .section-title {
     display: flex;
     flex-direction: column;
