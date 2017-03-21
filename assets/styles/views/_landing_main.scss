@@ -375,19 +375,12 @@
 .section-cover {
   background-repeat: no-repeat;
   background-position: center right;
-  background-size: contain;
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 300px;
   position: relative;
   margin: auto;
   max-width: 1440px;
-
-  // Small
-  @media #{$extra-small-and-down} {
-    background-position: bottom;
-    height: auto;
-  }
 
   // Section Title - Position
 
@@ -406,13 +399,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 300px;
+    margin: 140px 0;
 
     // Small
     @media #{$extra-small-and-down} {
       position: relative;
       padding: 48px 8px;
-      height: auto;
+      margin: 64px 0;
       text-align: center;
     }
 
@@ -436,7 +429,7 @@
 
       // Small
       @media #{$extra-small-and-down} {
-        font-size: 20px;
+        font-size: 26px;
         margin-bottom: 8px;
       }
 

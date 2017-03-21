@@ -1,26 +1,19 @@
 .section-cover {
   &.landing-support {
-    background-color: #7b7372;
     background-image: url("../images/hero-support2.jpg");
     margin-bottom: 32px;
-    background-position: left;
 
     // Small
     @media #{$extra-small-and-down} {
-      background-image: none;
-      background-color: #FCEDEC;
-    }
-
-    // Large
-    @media #{$large-and-up} {
-      background-size: 64%;
+      background-position: center;
     }
   }
 }
 
 .landing-support {
   .section-title {
-    background: #FCEDEC;
+    align-items: center;
+    color: #fff;
   }
 
   .item {
