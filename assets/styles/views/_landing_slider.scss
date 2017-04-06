@@ -90,11 +90,12 @@
   }
 
   .device {
+    background-image: url(../images/device-base@2x.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     margin: auto;
-    max-width: 230px;
-    min-height: 472px;
+    max-width: 280px;
+    min-height: 526px;
 
     img {
       width: 230px;

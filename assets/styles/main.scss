@@ -11,55 +11,55 @@
 */
 
 /*
-	Libraries
+    Libraries
 */
 
 @import "lib/slick/slick";
 @import "lib/select2.min.scss";
 @import "lib/swiper.scss";
+@import "lib/jquery.fullpage.scss";
 
 /*import fonts*/
 @font-face {
-    font-family: "Montserrat";
-    src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "MontserratBold";
-    src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
+  font-family: "MontserratBold";
+  src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "MontserratLight";
-    src: url("../fonts/Montserrat-Light.otf") format("truetype");
+  font-family: "MontserratLight";
+  src: url("../fonts/Montserrat-Light.otf") format("truetype");
 }
 
 /*
-	Variables
+    Variables
 */
 @import "vars";
 
 /*
-	Global
+    Global
 */
 @import "global";
 
 /*
-	Utilities
+    Utilities
 */
 @import "utilities/text";
 @import "utilities/spacing";
 
-
 /*
-	Layout
+    Layout
 */
 @import "layout/header";
 @import "layout/grid";
 @import "layout/footer";
 
 /*
-	Components
+    Components
 */
 
 @import "components/components";
@@ -68,4 +68,4 @@
   Views
 */
 
-@import 'views/views';
+@import "views/views";

@@ -1,0 +1,107 @@
+.scroll-container {
+  width: 100%;
+  max-width: 740px;
+  margin: auto;
+  position: relative;
+}
+
+.scroll-text {
+  float: right;
+  width: 100%;
+
+  // Small Screen
+  @media #{$small-and-down} {
+    padding: 0 30px;
+    margin-bottom: 16px;
+
+    h1 {
+      font-size: $font-lg;
+    }
+
+    p {
+      font-size: $font-xs;
+    }
+  }
+
+  // Medium Up
+  @media #{$medium-and-up} {
+    margin-top: 180px;
+    max-width: 320px;
+    text-align: left;
+  }
+
+  &.left-text {
+    float: left;
+  }
+}
+
+.section-device {
+  width: 50%;
+  float: left;
+
+  // Small Screen
+  @media #{$small-and-down} {
+    width: 100%;
+  }
+}
+
+.device {
+  background-image: url(../images/device-base@2x.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: auto;
+  max-width: 280px;
+  min-height: 526px;
+  position: relative;
+
+  // Small Screen
+  @media #{$small-and-down} {
+
+    img {
+      margin: auto;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.device-screen {
+  width: 220px;
+  height: 390px;
+  background-size: 220px 390px;
+  background-repeat: no-repeat;
+  background: #000;
+  position: absolute;
+  top: 69px;
+  left: 30px;
+
+  figure {
+    box-shadow: 0 0 0 1px #bfece5;
+    width: 220px;
+    height: 390px;
+    background-size: 220px 390px;
+    background-repeat: no-repeat;
+    margin: 0;
+  }
+}
+
+// App Screens
+.screen-1 {
+  background-image: url(../images/pear-screen-1@2x.jpg);
+}
+
+.screen-2 {
+  background-image: url(../images/pear-screen-2@2x.jpg);
+}
+
+.screen-3 {
+  background-image: url(../images/pear-screen-3@2x.jpg);
+}
+
+.screen-4 {
+  background-image: url(../images/pear-screen-4@2x.jpg);
+}
+
+.screen-5 {
+  background-image: url(../images/pear-screen-5@2x.jpg);
+}

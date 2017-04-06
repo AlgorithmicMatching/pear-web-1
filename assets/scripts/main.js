@@ -7,6 +7,7 @@ $(function() {
   for (var i = 18; i < 100; i++) {
     data.push({ id: i, text: i });
   }
+
   //intitializing select
   $('.select-age-home').select2({
     placeholder: "Age",
@@ -110,25 +111,25 @@ $(function() {
 
   function loadimg() {
 
-      var last;
+    var last;
 
-      if (heroCurImage >= 0)
-        last = $('.hero-cover figure:eq(' + heroCurImage + ')')
+    if (heroCurImage >= 0)
+      last = $('.hero-cover figure:eq(' + heroCurImage + ')')
 
-      if (last)
-        setTimeout(function() {
-          last.hide()
-        }, 1000 * 10)
+    if (last)
+      setTimeout(function() {
+        last.hide()
+      }, 1000 * 10)
 
-      heroCurImage += 1;
+    heroCurImage += 1;
 
-      if (heroCurImage == heroCount) heroCurImage = 0;
+    if (heroCurImage == heroCount) heroCurImage = 0;
 
-      var nx = $('.hero-cover figure:eq(' + heroCurImage + ')')
+    var nx = $('.hero-cover figure:eq(' + heroCurImage + ')')
 
-      nx.show()
+    nx.show()
 
-      to = setTimeout(loadimg, 1000 * 30)
+    to = setTimeout(loadimg, 1000 * 30)
 
   }
 
@@ -150,16 +151,15 @@ $(function() {
 
 
 
-// Swiper Slider
-var swiper = new Swiper('.swiper-container', {
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
-  nextButton: '.swiper-button-next',
-  prevButton: '.swiper-button-prev',
-  autoplay: 5000,
-  loop: true,
-  keyboardControl: true,
-  autoplayDisableOnInteraction: true,
-  speed: 1000,
-  parallax: true
+
+// Fullpage
+$(document).ready(function() {
+  $('#fullpage').fullpage({
+    scrollOverflow: true,
+
+    // Navigation
+    navigation: true,
+    navigationPosition: 'right'
+
+  });
 });
