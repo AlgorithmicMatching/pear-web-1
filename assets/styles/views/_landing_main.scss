@@ -526,3 +526,10 @@
     transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
   }
 }
+
+#fp-nav {
+  // Small
+  @media #{$extra-small-and-down} {
+    display: none;
+  }
+}

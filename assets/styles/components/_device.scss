@@ -6,28 +6,37 @@
 }
 
 .scroll-text {
-  float: right;
-  width: 100%;
-
+  text-align: center;
+   
   // Small Screen
-  @media #{$small-and-down} {
+  @media #{$extra-small-and-down} {
+    text-align: center;
+    margin: 30px 0 0;
     padding: 0 30px;
-    margin-bottom: 16px;
 
     h1 {
-      font-size: $font-lg;
+      font-size: $font-smd;
     }
 
     p {
-      font-size: $font-xs;
+      font-size: $font-xxs;
     }
   }
 
   // Medium Up
   @media #{$medium-and-up} {
+    float: right;
+    width: 100%;
     margin-top: 180px;
     max-width: 320px;
     text-align: left;
+  }
+
+  // Medium - Portrait
+  @media #{max-width: 768px} and (orientation: portrait) {
+    float: none;
+    width: 50%;
+     margin: 0 auto 40px;
   }
 
   &.left-text {
@@ -54,6 +63,12 @@
   min-height: 526px;
   position: relative;
 
+  // Mobile Only
+  @media #{$extra2-small-and-down} {
+    max-width: 240px;
+    min-height: 451px;
+  }
+
   // Small Screen
   @media #{$small-and-down} {
 
@@ -68,12 +83,18 @@
 .device-screen {
   width: 220px;
   height: 390px;
-  background-size: 220px 390px;
-  background-repeat: no-repeat;
   background: #000;
   position: absolute;
   top: 69px;
   left: 30px;
+
+  // Mobile Only
+  @media #{$extra2-small-and-down} {
+    width: 188px;
+    height: 334px;
+    top: 59px;
+    left: 26px;
+  }
 
   figure {
     box-shadow: 0 0 0 1px #bfece5;
@@ -82,6 +103,13 @@
     background-size: 220px 390px;
     background-repeat: no-repeat;
     margin: 0;
+
+    // Mobile Only
+    @media #{$extra2-small-and-down} {
+      width: 188px;
+      height: 334px;
+      background-size: 188px 334px;
+    }
   }
 }
 
