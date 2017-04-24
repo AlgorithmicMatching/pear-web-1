@@ -133,3 +133,18 @@
 .screen-5 {
   background-image: url(../images/pear-screen-5@2x.jpg);
 }
+
+
+.video{
+  position: absolute;
+  width: 220px;
+  height: 390px;
+
+     // Mobile Only
+    @media #{$extra2-small-and-down} {
+      width: 188px;
+      height: 334px;
+      display: none;
+      visibility: hidden;
+    }
+}

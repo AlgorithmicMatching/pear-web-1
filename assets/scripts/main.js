@@ -161,6 +161,5 @@ $(document).ready(function() {
     // Navigation
     navigation: true,
     navigationPosition: 'right'
-
   });
 });
