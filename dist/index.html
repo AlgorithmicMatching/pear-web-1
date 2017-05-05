@@ -16,10 +16,24 @@
 
 <body>
   <div class="burger-menu-overlay">
-    <div id="nav-home" class="nav-item clickable">Home</div>
-    <div id="nav-about" class="nav-item clickable">About</div>
-    <div id="nav-blog" class="nav-item clickable">Blog</div>
-    <div id="nav-support" class="nav-item clickable">Q &amp; A</div>
+    <ul>
+      <li data-menuanchor="slide1">
+        <a href="#slide1">Home</a>
+      </li>
+      <li data-menuanchor="slide2">
+        <a href="#slide2">About</a>
+      </li>
+      <li data-menuanchor="slide6">
+        <a href="#slide6">Blog</a>
+      </li>
+      <li data-menuanchor="slide7">
+        <a href="#slide7">Q &amp; A</a>
+      </li>
+    </ul>
+    <!-- <div id="nav-home-trigger" class="nav-item clickable">Home</div>
+    <div id="nav-about-trigger" class="nav-item clickable">About</div>
+    <div id="nav-blog-trigger" class="nav-item clickable">Blog</div>
+    <div id="nav-support-trigger" class="nav-item clickable">Q &amp; A</div> -->
   </div>
   <div class="burger-menu">
     <div class="burger-line burger-line-top"></div>
@@ -38,17 +52,17 @@
     <span class="pear-logo"></span>
     <nav class="nav-container">
       <ul>
-        <li data-menuanchor="firstPage">
-          <a href="#firstPage">Home</a>
+        <li data-menuanchor="slide1">
+          <a href="#slide1">Home</a>
         </li>
-        <li data-menuanchor="secondPage">
-          <a href="#secondPage">About</a>
+        <li data-menuanchor="slide2">
+          <a href="#slide2">About</a>
         </li>
-        <li data-menuanchor="thirdPage">
-          <a href="#thirdPage">Blog</a>
+        <li data-menuanchor="slide6">
+          <a href="#slide6">Blog</a>
         </li>
-        <li data-menuanchor="forthPage">
-          <a href="#forthPage">Q &amp; A</a>
+        <li data-menuanchor="slide7">
+          <a href="#slide7">Q &amp; A</a>
         </li>
       </ul>
       <!--   <div id="nav-home" class="nav-item clickable">Home</div>
@@ -62,8 +76,8 @@
     <div class="landing">
       <div class="section" id="section1">
         <div class="landing-hero">
+          <div id="nav-home-trigger"></div>
           <div class="content">
-            <div id="nav-home-trigger"></div>
             <div class="mid-section text-center">
               <div class="pear-logo"></div>
               <h1>Where science and math meet to find your perfect match</h1>
@@ -219,7 +233,7 @@
           </div>
         </div>
       </div>
-      <div class="section" id="section6">
+      <div cl ass="section" id="section6">
         <div class="scroll-container">
           <div class="scroll-text">
             <h1>Chat and pear up</h1>

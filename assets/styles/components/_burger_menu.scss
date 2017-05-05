@@ -73,15 +73,20 @@
   //   opacity: 1;
   // }
 
-  .nav-item {
-    font-size: 22px;
-    font-weight: 100;
-    color: rgba(#000, 0.25);
-    padding: 20px 0;
-    text-transform: capitalize;
+  ul {
+    padding: 0;
 
-    &.active {
-      color: $color-green;
+    li {
+      font-size: 22px;
+      font-weight: 100;
+      color: rgba(#000, 0.25);
+      padding: 20px 0;
+      list-style: none;
+      text-transform: capitalize;
+
+      &.active {
+        color: $color-green;
+      }
     }
   }
 }
