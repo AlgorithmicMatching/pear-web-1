@@ -4913,6 +4913,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 // $('.content').css({ height: $(window).innerHeight() > 840 ? $(window).innerHeight() : 840 });
 
 
+
 $(function() {
   //setting screen size
 
