@@ -17,13 +17,19 @@
 
   .pear-logo {
     margin: 0 auto;
-    background: url('../images/pear-logo-kit-black.svg');
+    background: url("../images/pear-logo-kit-black.svg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 103px;
     height: 141px;
   }
+
   input {
     margin-bottom: 20px;
   }
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
 }
