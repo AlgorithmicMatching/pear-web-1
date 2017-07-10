@@ -157,8 +157,10 @@ $(function() {
 // Fullpage
 $(document).ready(function() {
   $('#fullpage').fullpage({
-    anchors: ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7'],
+    anchors: ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8'],
+    menu: '.top-nav-menu',
     scrollOverflow: true,
+
 
     // Navigation
     navigation: true,
