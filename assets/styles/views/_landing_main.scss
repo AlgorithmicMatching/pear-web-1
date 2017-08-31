@@ -534,9 +534,3 @@
     display: none;
   }
 }
-
-#section1 {
-  @media #{$large-and-up} {
-    min-height: 668px;
-  }
-}
