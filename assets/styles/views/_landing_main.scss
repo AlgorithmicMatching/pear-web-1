@@ -272,8 +272,8 @@
   }
 }
 
-// Coming Soon to
-.coming-soon {
+// Download App
+.download-app {
   margin-top: 48px;
   max-width: 90%;
 
@@ -302,25 +302,14 @@
   justify-content: center;
   margin-top: 16px;
 
-  // Small Only
-  @media #{$extra-small-and-down} {
-    transform: scale(0.85);
-    margin-top: 10px;
+  // Medium Up
+  @media #{$medium-and-up} {
+    margin-top: 24px;
   }
 
   .badge {
-    padding: 0 16px;
+    padding: 0 6px;
     line-height: 0;
-
-    svg {
-      transform: scale(0.923);
-    }
-  }
-
-  .google-play {
-    border-left: 1px solid rgba(#fff, 0.5);
-    top: 2px;
-    position: relative;
   }
 }
 
@@ -543,5 +532,11 @@
   // Small
   @media #{$extra-small-and-down} {
     display: none;
+  }
+}
+
+#section1 {
+  @media #{$large-and-up} {
+    min-height: 668px;
   }
 }
