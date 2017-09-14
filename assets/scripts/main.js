@@ -160,7 +160,17 @@ $(document).ready(function() {
     anchors: ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8'],
     menu: '.top-nav-menu',
     scrollOverflow: true,
+    onLeave: function(index, nextIndex, direction) {
+  		var leavingSection = $(this);
 
+  		if(index == 1 && direction =='down'){
+        $("#top-nav").addClass("fixed");
+  		}
+
+  		else if(index == 2 && direction == 'up'){
+  			$("#top-nav").removeClass("fixed");
+  		}
+  	},
 
     // Navigation
     navigation: true,

@@ -117,11 +117,11 @@ gulp.task('watch', function() {
   gulp.watch('styles/**/*.scss', { cwd: paths.src }, ['styles']);
 });
 
-console.log('PORT', process.env.PORT);
+console.log('PORT', config.port);
 gulp.task('serve-prod', function() {
   connect.server({
     root: ['dist'],
-    port: process.env.PORT || 5000, // localhost:5000
+    port: config.port || 5000, // localhost:5000
     livereload: false
   });
 });
