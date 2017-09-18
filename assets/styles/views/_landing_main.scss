@@ -70,7 +70,7 @@
           // Small Down
           @media #{$extra-small-and-down} {
             margin-bottom: 8px;
-            font-size: 22px;
+            font-size: 20px;
           }
 
           // Medium
@@ -94,7 +94,7 @@
 
           // Small Only
           @media #{$extra-small-and-down} {
-            font-size: 14px;
+            font-size: 13px;
           }
 
           // Medium
@@ -117,8 +117,8 @@
 
           // Small Only
           @media #{$extra-small-and-down} {
-            width: 52px;
-            height: 56px;
+            width: 64px;
+            height: 68px;
             margin-bottom: 24px;
           }
         }
@@ -192,6 +192,7 @@
 
   .button-join {
     width: 226px;
+    height: 41px;
   }
 
   .landing-join {
@@ -310,6 +311,14 @@
   .badge {
     padding: 0 6px;
     line-height: 0;
+  }
+
+  svg {
+    // Medium Up
+    @media #{$medium-and-up} {
+      width: 162px;
+      transform: scale(1.2);
+    }
   }
 }
 

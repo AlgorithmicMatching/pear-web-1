@@ -4,13 +4,16 @@ button {
 }
 
 .button {
-  font-weight: 500;
-  text-align: center;
-  padding: 15px 30px;
-  height: 50px;
   border-radius: 32px;
   cursor: pointer;
+
+  font: {
+    size: $font-xs;
+    weight: 500;
+  };
+  padding: 12px 24px;
   text-transform: uppercase;
+  text-align: center;
 
   &.green {
     color: white;
@@ -39,8 +42,7 @@ button {
   }
 
   &.medium {
-    height: 44px;
-    font-size: 12px;
+    font-size: $font-xxs;
 
     // Small
     @media #{$extra-small-and-down} {
