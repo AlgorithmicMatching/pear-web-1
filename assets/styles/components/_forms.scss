@@ -10,12 +10,12 @@ input {
   color: $color-grey-light;
 
   &.input-boxed {
-    height: 51px;
+    // height: 51px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.4);
 
     // 18px //
-    font-size: $font-sm;
+    font-size: $font-xs;
     outline: 0;
     border: 0;
     padding: 12px 16px;
@@ -23,9 +23,8 @@ input {
     // Small Only
     @media #{$extra-small-and-down} {
       // 14px //
-      font-size: $font-xs;
-      height: 44px;
-      padding: 12px;
+      // height: 44px;
+      padding: 12px 10px;
     }
   }
 }
