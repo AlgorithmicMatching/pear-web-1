@@ -167,7 +167,7 @@ $(document).ready(function() {
         $("#top-nav").addClass("fixed");
   		}
 
-  		else if(index == 2 && direction == 'up'){
+      else if(nextIndex == 1){
   			$("#top-nav").removeClass("fixed");
   		}
   	},
