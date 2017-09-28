@@ -1,12 +1,16 @@
 .section-cover {
   &.landing-blog {
-    background-image: url("../images/hero-blog.png");
+    background-image: url("../images/hero-blog.jpg");
 
     // Small
     @media #{$extra2-small-and-down} {
       background-position: -172px 4px;
     }
   }
+}
+
+.landing-blog .section-title {
+  color: #fff;
 }
 
 .blog-post {
