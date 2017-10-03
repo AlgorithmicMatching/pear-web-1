@@ -59,14 +59,33 @@
   }
 
   .post {
-    // Small
-    @media #{$extra-small-and-down} {
+    text-align: center;
+
+    // Small - Portrait
+    @media #{$extra-small-and-down} and (orientation: portrait) {
       margin: 24px 0 32px;
+      padding: 0;
+      text-align: left;
     }
 
     img {
       width: 100%;
     }
+
+    // Medium Up
+    @media #{$medium-and-up} {
+      text-align: left;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    margin-bottom: 64px;
   }
 
   .latest-post-thumb {
