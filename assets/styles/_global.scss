@@ -118,24 +118,27 @@ img {
 .cookies-consent {
   background: #fff;
   border-top: 1px solid rgba(#D8D8D8, 0.7);
-  position: fixed;
+  position: absolute;
   padding: 6px 0;
-  bottom: 0;
+  top: 0;
   z-index: 1000;
   width: 100%;
 
   button {
     font-size: 10px;
+
+    &.small {
+      // Small
+      @media #{$extra-small-and-down} {
+        padding: 8px 16px;
+        height: 28px;
+      }
+    }
   }
 
   // Small
-  @media #{$extra-small-and-down} {
-    padding: 8px 0 24px;
-  }
-
-  // Medium
-  @media #{$small-and-down} and (orientation: portrait) {
-    padding: 8px 0 24px;
+  @media #{$extra-small-and-down} and (orientation: portrait) {
+    padding: 0 0 14px;
   }
 
   p {
@@ -144,8 +147,10 @@ img {
 
     // Small
     @media #{$extra-small-and-down} {
-      margin-right: 0;
-      font-size: $font-xxs;
+      font-size: 11px;
+      line-height: normal;
+      margin: 0 16px 0 0;
+      padding: 12px 0;
     }
   }
 
@@ -160,6 +165,31 @@ img {
     // Small
     @media #{$extra-small-and-down} {
       justify-content: flex-start;
+    }
+  }
+}
+
+.announcement-bar {
+  position: absolute;
+  bottom: 0;
+  background: #E91E63;
+  color: #fff;
+  z-index: 1;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+
+  h6 {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+
+    span {
+      position: absolute;
+      top: 7px;
+      font-size: 24px;
+      margin-left: 6px;
     }
   }
 }
