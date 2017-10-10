@@ -2,9 +2,9 @@
   &.landing-blog {
     background-image: url("../images/hero-blog.jpg");
 
-    // Small
-    @media #{$extra2-small-and-down} {
-      background-position: -172px 4px;
+    // Large Up
+    @media #{$large-and-up} {
+      background-position: 0 -20px;
     }
   }
 }
@@ -13,9 +13,14 @@
   color: #fff;
 }
 
+.blog {
+  max-width: 1440px;
+  margin: auto;
+}
+
 .blog-post {
   border-bottom: 1px solid rgba(#D8D8D8, 0.7);
-  padding: 72px 0;
+  padding: 72px 0 32px;
 
   // Small
   @media #{$extra-small-and-down} {
@@ -28,6 +33,18 @@
 
   .row {
     width: 100%;
+  }
+
+  // Large Up
+  @media #{$large-and-up} {
+
+    &:first-child {
+      padding-right: 64px;
+    }
+
+    &:last-child {
+      padding-left: 64px;
+    }
   }
 }
 
@@ -45,17 +62,12 @@
 .post-details {
   padding-right: 10% !important;
 
-  // Large
-  @media #{$large-and-up} {
-    padding-right: 20% !important;
-  }
-
   h1 {
     color: $color-green;
 
     font: {
-      size: 24px;
-      weight: 700;
+      size: 22px;
+      weight: $normal;
     };
     line-height: 1.3;
 

@@ -61,6 +61,10 @@
   .post {
     text-align: center;
 
+    h5 {
+      font-weight: $normal;
+    }
+
     // Small - Portrait
     @media #{$extra-small-and-down} and (orientation: portrait) {
       margin: 24px 0 32px;

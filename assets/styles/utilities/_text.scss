@@ -211,8 +211,15 @@ h5.text-small-caps {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'MontserratLight';
+  font-family: 'Montserrat';
+  font-weight: $book;
+  line-height: 1.2;
   margin: 0;
+
+  // Small
+  @media #{$extra-small-and-down} {
+    font-weight: $normal;
+  }
 }
 
 h1 {
@@ -252,8 +259,9 @@ h6 {
 }
 
 p {
-  font-family: 'MontserratLight';
+  font-family: 'Montserrat';
   line-height: 1.6;
+  font-weight: $thin;
 
   // Small Only
   @media #{$extra-small-and-down} {

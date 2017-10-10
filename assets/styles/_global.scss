@@ -90,6 +90,7 @@ img {
 .content-inner-list {
   h5 {
     margin-top: 24px;
+    font-weight: $normal;
     width: 100%;
     line-height: 1.5;
   }
@@ -101,7 +102,7 @@ img {
   li {
     font: {
       size: 14px;
-      family: MontserratLight;
+      weight: $thin;
     };
     padding-bottom: 16px;
   }
@@ -123,6 +124,10 @@ img {
   z-index: 1000;
   width: 100%;
 
+  button {
+    font-size: 10px;
+  }
+
   // Small
   @media #{$extra-small-and-down} {
     padding: 8px 0 24px;
@@ -140,6 +145,7 @@ img {
     // Small
     @media #{$extra-small-and-down} {
       margin-right: 0;
+      font-size: $font-xxs;
     }
   }
 

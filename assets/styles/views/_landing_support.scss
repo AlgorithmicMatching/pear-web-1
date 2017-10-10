@@ -11,6 +11,11 @@
 }
 
 .landing-support {
+  &.support {
+    max-width: 1440px;
+    margin: auto;
+  }
+
   .section-title {
     align-items: center;
     color: #fff;
@@ -28,7 +33,7 @@
     }
 
     h5 {
-      font-weight: 700;
+      font-weight: $normal;
     }
 
     &:before {

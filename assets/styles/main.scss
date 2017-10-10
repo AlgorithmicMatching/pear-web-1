@@ -17,21 +17,24 @@
 @import "lib/select2.min.scss";
 @import "lib/jquery.fullpage.scss";
 
-/*import fonts*/
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
-}
+// /*import fonts
+// @font-face {
+//   font-family: "Montserrat";
+//   src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+// }
 
-@font-face {
-  font-family: "MontserratBold";
-  src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
-}
+// @font-face {
+//   font-family: "MontserratBold";
+//   src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
+// }
 
-@font-face {
-  font-family: "MontserratLight";
-  src: url("../fonts/Montserrat-Light.otf") format("truetype");
-}
+// @font-face {
+//   font-family: "MontserratLight";
+//   src: url("../fonts/Montserrat-Light.otf") format("truetype");
+// }
+
+// Import Fonts
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600");
 
 /*
     Variables
