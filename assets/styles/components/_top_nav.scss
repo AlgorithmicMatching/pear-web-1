@@ -28,7 +28,7 @@
     }
   }
 
-  .pear-logo {
+  .pear-logo, .top-nav-social {
     display: none;
   }
 
@@ -72,6 +72,43 @@
     .nav-item {
       &:hover {
         color: darken($color-grey-light, 10%);
+      }
+    }
+
+    .top-nav-social {
+      display: block;
+      position: absolute;
+      right: 32px;
+      top: 8px;
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        padding-right: 16px;
+        float: left;
+
+        &:last-child {
+          padding: 0;
+        }
+
+        // Small
+        @media #{$small-and-down} {
+          width: auto;
+        }
+
+        a {
+          font-size: 0;
+
+          &:h over {
+            opacity: 0.5;
+          }
+        }
+
+        svg {
+          transform: scale(0.75);
+        }
       }
     }
   }
