@@ -1,24 +1,40 @@
 .support {
+  .container {
+    // Small
+    @media #{$extra-small-and-down} {
+      padding: 0 16px;
+    }
+  }
 
   .item {
+    h5 {
+      color: $color-green;
+      max-width: 90%;
+    }
 
     .desc {
       display: none;
     }
 
-    &.active {
-      > .title {
-        color: $color-green;
-      }
+    &:before{
+        cursor: pointer;
     }
 
-  }
+    &.active {
+      > .title {
+        color: $color-black;
+      }
 
-  .bullet {
-    height: 7px;
-    width: 7px;
-    background-color: $color-green;
-    border-radius: 50%;
-    margin: 0 auto;
+      &:before {
+        transform: rotateX(-180deg);
+      }
+    }
   }
+}
+
+#view-faq {
+  color: $color-green;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
 }

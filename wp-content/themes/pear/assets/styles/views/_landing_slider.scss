@@ -1,0 +1,167 @@
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+  // Small Screen
+  @media #{$small-and-down} {
+    display: none;
+  }
+}
+
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  // Small Screen
+  @media #{$small-and-down} {
+    display: none;
+  }
+}
+
+.swiper-container {
+  background: #F7F9FC;
+  width: 100%;
+  padding-bottom: 30px;
+  z-index: 0;
+
+  // Small Screen
+  @media #{$small-and-down} {
+    padding-bottom: 50px;
+  }
+}
+
+.swiper-slide {
+  // Center slide text vertically
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 100px auto;
+
+  // Small and Medium
+  @media #{$small-and-down} {
+    margin: 48px auto;
+  }
+
+  // Large Up
+  @media #{$medium-and-up} {
+    margin: 64px auto;
+  }
+
+  p {
+    font: {
+      weight: $light;
+    };
+    line-height: $line-height-md;
+  }
+
+  // Small and Medium
+  @media #{$small-and-down} {
+    text-align: center;
+  }
+
+  .swiper-slide {
+    max-width: 760px;
+  }
+}
+
+.slider-container {
+  width: 100%;
+  max-width: 740px;
+  margin: auto;
+  position: relative;
+}
+
+.slider-device {
+  width: 50%;
+  float: left;
+
+  // Small Screen
+  @media #{$small-and-down} {
+    width: 100%;
+  }
+
+  img {
+    position: absolute;
+  }
+
+  .device {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: auto;
+    max-width: 230px;
+    min-height: 472px;
+
+    img {
+      width: 230px;
+    }
+
+    // Small Screen
+    @media #{$small-and-down} {
+      max-width: 220px;
+      min-height: 452px;
+
+      img {
+        width: 220px;
+        margin: auto;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  // iPhone Device
+  .iPhone {
+    background-image: url(../images/device-iPhone.png);
+  }
+
+  // Android Device
+  .android {
+    background-image: url(../images/device-android.png);
+  }
+}
+
+.slider-text {
+  float: right;
+  width: 100%;
+
+  // Small Screen
+  @media #{$small-and-down} {
+    padding: 0 30px;
+    margin-bottom: 16px;
+
+    h1 {
+      font-size: $font-lg;
+    }
+
+    p {
+      font-size: $font-xs;
+    }
+  }
+
+  // Medium Up
+  @media #{$medium-and-up} {
+    margin-top: 180px;
+    max-width: 320px;
+    text-align: left;
+  }
+
+  &.left-text {
+    float: left;
+  }
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 45px;
+
+  // Small Screen
+  @media #{$small-and-down} {
+    bottom: 30px;
+  }
+}

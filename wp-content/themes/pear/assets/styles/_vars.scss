@@ -1,10 +1,9 @@
 /*
-	Colors
+  Colors
 */
 
-$color-green: #62D6C5;
-
-$color-grey: #939598;
+// $color-green: #62D6C5;
+$color-green: #21BEA7;
 $color-grey-lightest2: #d8d8d8;
 $color-grey-lightest: #cccccc;
 $color-grey-light: #afafaf;
@@ -12,10 +11,8 @@ $color-grey: #797979;
 $color-grey-dark: #333333;
 $color-black: #000000;
 
-
-
 /*
-	Media Query Breakpoints
+  Media Query Breakpoints
 */
 
 $extra2-small-screen: 320px;
@@ -29,25 +26,25 @@ $large-screen-max: 1199px;
 $large-screen: 1200px;
 $extra-large-screen-max: 1439px;
 $extra-large-screen: 1440px;
-$extra2-small-and-down: 'only screen and (max-width : #{$extra-small-screen-max})';
-$extra2-small-and-up: 'only screen and (max-width : #{$extra2-small-screen})';
-$extra-small-and-down: 'only screen and (max-width : #{$small-screen-max})';
-$extra-small-and-up: 'only screen and (min-width : #{$extra-small-screen})';
-$small-and-down: 'only screen and (max-width : #{$medium-screen-max})';
-$small-and-up: 'only screen and (min-width : #{$small-screen})';
-$medium-and-down: 'only screen and (min-width : #{$large-screen-max})';
-$medium-and-up: 'only screen and (min-width : #{$medium-screen})';
-$large-and-down: 'only screen and (min-width : #{$extra-large-screen-max})';
-$large-and-up: 'only screen and (min-width : #{$large-screen})';
-$extra-large-and-up: 'only screen and (min-width : #{$extra-large-screen})';
 
-
+//
+$extra2-small-and-down: "only screen and (max-width : #{$extra-small-screen-max})";
+$extra2-small-and-up: "only screen and (max-width : #{$extra2-small-screen})";
+$extra-small-and-down: "only screen and (max-width : #{$small-screen-max})";
+$extra-small-and-up: "only screen and (min-width : #{$extra-small-screen})";
+$small-and-down: "only screen and (max-width : #{$medium-screen-max})";
+$small-and-up: "only screen and (min-width : #{$small-screen})";
+$medium-and-down: "only screen and (min-width : #{$large-screen-max})";
+$medium-and-up: "only screen and (min-width : #{$medium-screen})";
+$large-and-down: "only screen and (min-width : #{$extra-large-screen-max})";
+$large-and-up: "only screen and (min-width : #{$large-screen})";
+$extra-large-and-up: "only screen and (min-width : #{$extra-large-screen})";
 $font-primary: "Montserrat";
 
-
 /*
-	Font Weights
+  Font Weights
 */
+
 $thin: 100;
 $light: 200;
 $book: 300;
@@ -59,7 +56,7 @@ $extra-bold: 800;
 $black: 900;
 
 /*
-	Font Sizes
+  Font Sizes
 */
 
 $font-xxs: 12px;
@@ -71,10 +68,9 @@ $font-lg: 28px;
 $font-mlg: 38px;
 $font-xlg: 50px;
 $font-xxlg: 70px;
-$font-xxxlg: 100px;
 
 /*
-	Line height
+  Line height
 */
 
 $line-height-lg: 1.67;

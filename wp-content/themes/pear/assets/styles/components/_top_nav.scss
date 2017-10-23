@@ -3,22 +3,25 @@
     display: none;
   }
 
+  * {
+    font-weight: $thin;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
   width: 100%;
   height: 64px;
-  position: fixed;
+  position: absolute;
   color: white;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  z-index: 1;
+  z-index: 1000;
+  transition: 0.3s;
 
   .nav-item {
-
     padding-bottom: 19px;
     padding-left: 10px;
     padding-right: 10px;
 
-    &.active {
-      border-bottom: 1px solid white;
-    }
+    &.active {}
 
     &:hover {
       color: darken(white, 10%);
@@ -32,7 +35,8 @@
   &.white {
     background-color: white;
     color: $color-grey-light;
-    box-shadow: 7px 7px 30px 0 rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid rgba(#000, 0.1);
+    position: fixed;
 
     .active {
       color: $color-green;
@@ -42,9 +46,13 @@
       }
     }
 
+    .nav-container {
+      margin-top: 24px;
+    }
+
     .pear-logo {
       display: block;
-      background: url('../images/pear-logo-black.svg');
+      background: url("../images/pear-logo-black.svg");
       background-size: cover;
       background-repeat: no-repeat;
       width: 111px;
@@ -54,6 +62,11 @@
       display: block;
       top: 18px;
       left: 32px;
+
+      // Small
+      @media #{$extra-small-and-down} {
+        left: 24px;
+      }
     }
 
     .nav-item {
@@ -64,23 +77,39 @@
   }
 
   &.static {
+    display: block;
+
     a {
       text-decoration: none;
       color: $color-grey-light;
 
       &:hover {
-        color: darken($color-grey-light, 10%);
+        color: $color-green;
+      }
+    }
+
+    .nav-container {
+      // Small
+      @media #{$extra-small-and-down} {
+        display: none;
+      }
+    }
+
+    .burger-menu {
+      top: 24px;
+      right: 24px;
+
+      .burger-line {
+        background: $color-green;
       }
     }
   }
 
   .nav-container {
-    width: 50%;
-    display:flex;
+    width: 390px;
+    display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    margin-top: 24px;
+    margin-top: 48px;
   }
-
-
 }

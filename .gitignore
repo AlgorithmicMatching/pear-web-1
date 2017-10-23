@@ -1,6 +1,7 @@
 .idea/
 node_modules/
 
+wp-config.php
 config.json
 *.iml
 .DS_Store

@@ -1,176 +1,172 @@
-$('.content').css({height: $(window).innerHeight() > 800 ? $(window).innerHeight() : 800});
+// $('.content').css({ height: $(window).innerHeight() > 840 ? $(window).innerHeight() : 840 });
 
-$(function () {
-    //setting screen size
-
+$(window).on("load", function() {
+  //setting screen size
     var data = [];
     for (var i = 18; i < 100; i++) {
-        data.push({id: i, text: i});
+      data.push({ id: i, text: i });
     }
+
     //intitializing select
     $('.select-age-home').select2({
-        placeholder: "Age",
-        minimumResultsForSearch: Infinity,
-        data: data
+      placeholder: "Age",
+      minimumResultsForSearch: Infinity,
+      data: data
     });
 
     $('.select-age-home').css('visibility', 'visible');
 
     /*
-     CAROUSEL BLOG
-     */
+      CAROUSEL BLOG
+    */
 
     if ($('.slick-carousel')[0]) {
-        $('.slick-carousel').slick({
-            dots: false,
-            speed: 300,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-        });
+      $('.slick-carousel').slick({
+        dots: false,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true
+            }
+          }, {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          }, {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+      });
     }
 
     /*
-     BURGER MENU
-     */
+      BURGER MENU
+    */
 
     var burgerOpen = false;
+    $('.burger-menu').on('click', function(e) {
+
+      if (!burgerOpen) {
+        openBurger();
+      } else {
+        closeBurger();
+      }
+
+
+      e.preventDefault();
+
+    });
+
+    $(document).on("click", ".nav-item", function(e) {
+      if (burgerOpen) {
+        closeBurger();
+      }
+    });
+
     function openBurger() {
-        $('.burger-menu').addClass('open');
-        $('.burger-menu-overlay').fadeIn();
-        $('.burger-menu-overlay').css('display', 'flex');
-        $('.burger-menu-overlay').css('z-index', 9999);
-        $('.burger-menu').css('z-index', 99999);
-        $('body').css('overflow', 'hidden');
-        burgerOpen = true;
+      $('.burger-menu').addClass('open');
+      $('.burger-menu-overlay').fadeIn();
+      $('.burger-menu-overlay').css('display', 'flex');
+      $('.burger-menu-overlay').css('z-index', 9999);
+      $('.burger-menu').css('z-index', 99999);
+      $('body').css('overflow', 'hidden');
+      burgerOpen = true;
     }
 
     function closeBurger() {
-        $('.burger-menu').removeClass('open');
-        $('.burger-menu-overlay').fadeOut();
-        $('.burger-menu-overlay').css('z-index', -1);
-        $('.burger-menu').css('z-index', 5);
-        $('body').css('overflow', 'auto');
-        burgerOpen = false;
+      $('.burger-menu').removeClass('open');
+      $('.burger-menu-overlay').fadeOut();
+      $('.burger-menu-overlay').css('z-index', -1);
+      $('.burger-menu').css('z-index', 5);
+      $('body').css('overflow', 'auto');
+      burgerOpen = false;
     }
 
-    $('.burger-menu').on('click', function (e) {
-
-        if (!burgerOpen) {
-            openBurger();
-        } else {
-            closeBurger();
-        }
-
-
-        e.preventDefault();
-
-    });
-
-    $(document).on("click", ".nav-item", function (e) {
-        if (burgerOpen) {
-            closeBurger();
-        }
-    });
-
-    $('.burger-menu-close').on('click', function () {
-        $('.burger-menu-overlay').fadeOut(2000);
+    $('.burger-menu-close').on('click', function() {
+      $('.burger-menu-overlay').fadeOut(2000);
     });
 
     /*
-     IMAGE SEQUENCE HERO
-     */
+      IMAGE SEQUENCE HERO
+    */
 
-    var heroImages = Array(wp_theme_home.uri + "/dist/images/pear_hero_1.png",
-        wp_theme_home.uri + "/dist/images/pear_hero_2.png",
-        wp_theme_home.uri + "/dist/images/pear_hero_3.png");
-
-    var heroCurImage = 0;
+    var heroCurImage = -1;
+    var heroCount = $('.hero-cover figure').length;
 
     function loadimg() {
 
-        $('#hero-cover').animate({opacity: 1}, 1000, function () {
+      var last;
 
-            //finished animating, minifade out and fade new back in
-            $('#hero-cover').animate({opacity: 0.7}, 200, function () {
+      if (heroCurImage >= 0)
+        last = $('.hero-cover figure:eq(' + heroCurImage + ')')
 
-                heroCurImage++;
+      if (last)
+        setTimeout(function() {
+          last.hide()
+        }, 1000 * 10)
 
-                if (heroCurImage > heroImages.length - 1) {
+      heroCurImage += 1;
 
-                    heroCurImage = 0;
+      if (heroCurImage == heroCount) heroCurImage = 0;
 
-                }
+      var nx = $('.hero-cover figure:eq(' + heroCurImage + ')')
 
-                var newimage = heroImages[heroCurImage];
+      nx.show()
 
-                //swap out bg src
-                $('#hero-cover').css("background", "url(" + newimage + ")");
-                $('#hero-cover').css("background-color", "black");
-
-                //animate fully back in
-                $('#hero-cover').animate({opacity: 1}, 400, function () {
-
-                    //set timer for next
-                    setTimeout(loadimg, 5000);
-
-                });
-
-            });
-
-        });
+      // to = setTimeout(loadimg, 1000 * 30)
 
     }
 
-    setTimeout(loadimg, 5000);
-
-
-    window.startLoading = function () {
-        $('.join-text').addClass('inactive');
-        $('.loader').removeClass('inactive');
-    };
-
-    window.endLoading = function () {
-        $('.join-text').removeClass('inactive');
-        $('.loader').addClass('inactive');
-    };
+    loadimg()
 
     /*
-     NOBEL PRIZE HEIGHT
-     */
+      NOBEL PRIZE HEIGHT
+    */
 
-    // if ($('#nobel-prize')) {
-    //   if ($('#nobel-prize').height() > 24) {
-    //     $('#nobel-prize').css('margin-top', -9);
-    //   }
-    // }
+    if ($('#nobel-prize')) {
+      if ($('#nobel-prize').height() > 24) {
+        $('#nobel-prize').css('margin-top', -9);
+      }
+    }
 });
 
 // blog
+
+// Fullpage
+$(window).on("load", function() {
+    $('#fullpage').fullpage({
+      anchors: ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8'],
+      menu: '.top-nav-menu',
+      scrollOverflow: true,
+      onLeave: function(index, nextIndex, direction) {
+       var leavingSection = $(this);
+
+       if(index == 1 && direction =='down'){
+          $("#top-nav").addClass("fixed");
+       }
+
+        else if(nextIndex == 1){
+         $("#top-nav").removeClass("fixed");
+       }
+     },
+
+      // Navigation
+      navigation: true,
+      navigationPosition: 'right'
+    });
+});

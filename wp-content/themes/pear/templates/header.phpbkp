@@ -1,0 +1,122 @@
+<div class="se-pre-con" id="se-pre-con"></div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<?php if ( ! is_home() ) : ?>
+<!-- 	<div id="top-nav" class="top-nav white static">
+  <a href="<?= esc_url( home_url( '/' ) ); ?>"><span class="pear-logo"></span></a>
+  <div class="nav-container">
+    <div id="nav-home" class="nav-item clickable">
+      <a href="/">Home</a>
+    </div>
+    <div id="nav-about" class="nav-item clickable">
+      <a href="/#nav-about-trigger">About</a>
+    </div>
+    <div id="nav-blog" class="nav-item clickable">
+      <a href="/#nav-blog-trigger">Blog</a>
+    </div>
+    <div id="nav-support" class="nav-item clickable">
+      <a href="/#nav-support-trigger">Q &amp; A</a>
+    </div>
+  </div>
+  <div class="burger-menu-overlay">
+    <div id="nav-home" class="nav-item clickable">Home</div>
+    <div id="nav-about" class="nav-item clickable">About</div>
+    <div id="nav-blog" class="nav-item clickable">Blog</div>
+    <div id="nav-support" class="nav-item clickable">Q &amp; A</div>
+  </div>
+  <div class="burger-menu">
+    <div class="burger-line burger-line-top"></div>
+    <div class="burger-line burger-line-middle"></div>
+    <div class="burger-line burger-line-bottom"></div>
+  </div>
+</div> -->
+<div id="top-nav" class="top-nav fixed">
+    <a href="<?= esc_url( home_url( '/' ) ); ?>"><span class="pear-logo"></span></a>
+    <nav class="nav-container">
+      <ul class="top-nav-menu">
+        <li data-menuanchor="slide1" class="">
+          <a href="/">Home</a>
+        </li>
+        <li data-menuanchor="slide2" class="">
+          <a href="/#slide2">About</a>
+        </li>
+        <li data-menuanchor="slide5" class="">
+          <a href="/#slide5">Blog</a>
+        </li>
+        <li data-menuanchor="slide6" class="active">
+          <a href="/#slide6">Support</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="burger-menu-overlay">
+    <ul>
+      <li data-menuanchor="slide1" class="nav-item clickable">
+        <a href="/">Home</a>
+      </li>
+      <li data-menuanchor="slide2" class="nav-item clickable">
+        <a href="/#slide2">About</a>
+      </li>
+      <li data-menuanchor="slide5" class="nav-item clickable">
+        <a href="/#slide5">Blog</a>
+      </li>
+      <li data-menuanchor="slide6" class="nav-item clickable">
+        <a href="/support">Q &amp; A</a>
+      </li>
+    </ul>
+  </div>
+  <div class="burger-menu">
+    <div class="burger-line burger-line-top"></div>
+    <div class="burger-line burger-line-middle"></div>
+    <div class="burger-line burger-line-bottom"></div>
+  </div>
+<?php else : ?>
+  <div class="burger-menu-overlay">
+    <ul>
+      <li data-menuanchor="slide1" class="nav-item clickable">
+        <a href="#slide1">Home</a>
+      </li>
+      <li data-menuanchor="slide2" class="nav-item clickable">
+        <a href="#slide2">About</a>
+      </li>
+      <li data-menuanchor="slide5" class="nav-item clickable">
+        <a href="#slide5">Blog</a>
+      </li>
+      <li data-menuanchor="slide6" class="nav-item clickable">
+        <a href="#slide6">Q &amp; A</a>
+      </li>
+    </ul>
+  </div>
+  <div class="burger-menu">
+    <div class="burger-line burger-line-top"></div>
+    <div class="burger-line burger-line-middle"></div>
+    <div class="burger-line burger-line-bottom"></div>
+  </div>
+  <div class="cookies-consent">
+    <div class="container col-xs-11 col-md-10">
+      <div class="row">
+        <p>This site uses cookies. By continuing to use this site, you are agreeing to our use of cookies.</p>
+        <button class="button small green" id="cookie">Ok, got it!</button>
+      </div>
+    </div>
+  </div> 
+  <div id="top-nav" class="top-nav">
+    <a href="<?= esc_url( home_url( '/' ) ); ?>"><span class="pear-logo"></span></a>
+    <nav class="nav-container">
+      <ul class="top-nav-menu">
+        <li data-menuanchor="slide1" class="active">
+          <a href="#slide1">Home</a>
+        </li>
+        <li data-menuanchor="slide2">
+          <a href="#slide2">About</a>
+        </li>
+        <li data-menuanchor="slide5">
+          <a href="#slide5">Blog</a>
+        </li>
+        <li data-menuanchor="slide6">
+          <a href="#slide6">Support</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+<?php endif; ?>

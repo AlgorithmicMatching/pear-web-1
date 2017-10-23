@@ -7,9 +7,14 @@ jQuery(function ($) {
         var user_name = $("#name");
         var user_email = $("#email");
         var user_age = $("#age");
+        var ref = $("#refferal");
+        var utm = $("#source");
         var psf_nonce = $("#psf_nonce");
+
         fd.append("user_name", user_name.val());
         fd.append("user_email", user_email.val());
+        fd.append("user_refferal", ref.val());
+        fd.append("utm_source", utm.val());
         fd.append("user_age", user_age.find(":selected").text());
         fd.append("psf_nonce", psf_nonce.val());
         fd.append("action", "psf_form_submit");

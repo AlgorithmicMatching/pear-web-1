@@ -1,344 +1,538 @@
-@@include('./_includes/head.html', {
-	"title": "Home"
-})
-<div class="burger-menu-overlay">
-	<div></div>
-	<div id="nav-home" class="nav-item clickable">
-		Home
-	</div>
-	<div id="nav-about" class="nav-item clickable">
-		About
-	</div>
-	<div id="nav-blog" class="nav-item clickable">
-		Blog
-	</div>
-	<div id="nav-support" class="nav-item clickable">
-		Q &amp; A
-	</div>
-	<div></div>
-</div>
-<div class="burger-menu">
-	<div class="burger-line burger-line-top"></div>
-	<div class="burger-line burger-line-middle"></div>
-	<div class="burger-line burger-line-bottom"></div>
-</div>
-<div class="landing">
-	<div class="landing-home">
-		<div id="hero-cover" class="landing-main content" >
-			@@include('./_includes/top_nav.html')
-			<span id="nav-home-trigger"></span>
-			<div class="mid-section text-center">
-				<div class="pear-logo"></div>
-				<h1 class="mb8">Creating matches, the smart way</h1>
-				<p class="mt0 mb32">Join our community to be among our beta testers or know when Pear will be available in your city</p>
-				<div class="row join-form-container">
-					<div class="col-xs-12 col-sm-4">
-						<input class="input-boxed" type="text" placeholder="Name" />
-					</div>
-					<div class="col-xs-12 col-sm-4">
-						<input class="input-boxed" type="text" placeholder="Email" />
-					</div>
-					<div class="col-xs-12 col-sm-4 select-container" style="z-index:10">
-						<select class="select-age-home">
-							<option></option>
-						</select>
-					</div>
-				</div>
-				<div class="button green shadow text-uppercase button-join mt40">
-					<span class="join-text">Join now</span>
-					<img class="loader inactive" src="images/loader.svg" />
-				</div>
-				<p class="mt24 we-promise">We promise to keep our emails to a minimum.</p>
-			</div>
-		</div>
-	</div>
-	<div id="menu-toggle-indicator"> </div>
-	<div id="nav-about-trigger"></div>
-	<div class="landing-about mt96">
-		<h1 class="text-uppercase text-center text-bold">About pear</h1>
-		<div class="row about-subsection-container mt96 pl24 pr24">
-			<div class="col-xs-12 col-sm-3 about-subsection ">
-				<h2 class="text-uppercase text-center">Pear</h2>
-				<hr />
-				Pear is a social networking application that lets you meet potential partners. We collect information from users and use it to <b>pear</b> them in an optimal way.
-			</div>
-			<div class="col-xs-12 col-sm-3 about-subsection pr24">
-				<h2 class="text-uppercase text-center">Comparisons</h2>
-				<hr />
-				We don’t make you swipe left or right. We find out who you like, who you like less and who you like the most. We do so by asking you to compare not one but two potential partners each time, and select one among them.
-			</div>
-			<div class="col-xs-12 col-sm-3 about-subsection pr24">
-				<h2 class="text-uppercase text-center">Nobel Matches</h2>
-				<hr />
-				Matches are found using a Nobel prize winning algorithm, developed by mathematicians David Gale and Lloyd Shapley --- published in a work that they titled, we kid you not, "The Stability of Marriage".
-			</div>
-			<div class="col-xs-12 col-sm-3 about-subsection pr24">
-				<h2 class="text-uppercase text-center">For you</h2>
-				<hr />
-				If you are tired of apps that match you with people who aren't really interested in you, that don't message you back, then <b>pear</b> is for you. We create matches that matter.
-			</div>
-		</div>
+<!DOCTYPE html>
+<html>
 
-		<div class="mobile pt120 pb120">
-			<div id=iphone-trigger></div>
-		  <div id="iphone" class="iphone-image">
-				<div class="title-container">
-					<div class="title-1 title text-regular text-uppercase text-color-green text-size-smd">Create an account</div>
-					<div class="title-2 title text-regular text-uppercase text-color-green text-size-smd opacity">Edit your profile</div>
-					<div class="title-3 title text-regular text-uppercase text-color-green text-size-smd opacity">Start comparing</div>
-					<div class="title-4 title text-regular text-uppercase text-color-green text-size-smd opacity">Meet your matches</div>
-					<div class="title-5 title text-regular text-uppercase text-color-green text-size-smd opacity">Chat and pear up</div>
-				</div>
-		    <img src="images/iphone-device.png"/>
-				<img class="shot-1 shot" src="images/shot-1.svg"/>
-				<img class="shot-2 shot opacity" src="images/shot-2.svg"/>
-				<img class="shot-3 shot opacity" src="images/shot-3.svg"/>
-				<img class="shot-4 shot opacity" src="images/shot-5.svg"/>
-				<img class="shot-5 shot opacity" src="images/shot-6.svg"/>
-		  </div>
-		</div>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="description" content="Pear Web Page">
+  <title>Pear Web | Home</title>
+  <!-- Custom styles for this template -->
+  <!-- Built main.css style -->
+  <link href="styles/main.css" rel="stylesheet">
+  <!-- End Built css -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
 
-		<div class="row mt96 mb96 pl24 pr24 about-subsection-container">
-			<div class="col-xs-12 col-sm-4 about-subsection">
-				<h2 class="text-uppercase text-center">Know yourself</h2>
-				<hr />
-				Besides helping you making new friends, we want to improve your knowledge about what you like and what others think about you.
-			</div>
-			<div class="col-xs-12 col-sm-4 about-subsection pr24">
-				<a href="http://rtvslo.si">
-					<h2 class="text-uppercase text-center">The Pear report</h2>
-					<hr />
-					Periodically, we will provide you with an individual report that will inform you of your own tastes and of how you score with people of the other sex.
-				</a>
-			</div>
-			<div class="col-xs-12 col-sm-4 about-subsection pr24">
-				<h2 class="text-uppercase text-center">Support us</h2>
-				<hr />
-				Pear is free but please note, our individual reports will be made available to those with a premium membership. We value you using our product but we would also love your support.
-			</div>
-		</div>
-
-		<!-- <div class="row about-subsection-container mt96 mb96 pl24 pr24">
-			<div class="col-xs-12 col-sm-3 about-subsection ">
-				<h2 class="text-uppercase text-center">Online dating today</h2>
-				<hr />
-				Online dating has been growing steadily in popularity. Roughly, about 1 in 5 relationships now start online in the UK and US.
-			</div>
-			<div class="col-xs-12 col-sm-3 about-subsection pr24">
-				<h2 class="text-uppercase text-center">Congestion problem</h2>
-				<hr />
-				Online dating suffers from a congestion problem. Women tend to receive a large number of messages/swipes from male users and often, they are unable to distinguish real interest from spam.
-			</div>
-			<div class="col-xs-12 col-sm-3 about-subsection pr24">
-				<h2 class="text-uppercase text-center">How we solve it</h2>
-				<hr />
-				pear solves the problem by only offering high-quality matches. If we match you with someone, you know there’s no one else that you rank higher, who also ranks you above their own matches.
-			</div>
-			<div class="col-xs-12 col-sm-3 about-subsection pr24">
-				<h2 class="text-uppercase text-center">Will it work?</h2>
-				<hr />
-				The algorithm we use isn’t just a beautiful mathematical idea. Research suggests it fares extremely well in predicting real life dating and marriage patterns.
-			</div>
-		</div> -->
-	</div>
-
-	<div id="nav-blog-trigger"></div>
-	<div class="landing-blog blog-cover">
-		<h1 class="text-uppercase mt0 text-center text-regular">Blog</h1>
-		<h1 class="text-center">Matches that matter.</h1>
-	</div>
-
-	<div class="blog container">
-		<div class="posts-container pb40">
-	    <div class="row">
-	      <div class="col-xs-12">
-	        <h4 class="text-uppercase mt40 mb40">Latest posts</h4>
-	      </div>
-				<div class="slick-carousel-container">
-					<div class="slick-carousel">
-			      <div class="text-center post">
-			        <img src="images/blogArticle.png"/>
-			        <p class="text-size-smd text-capitalize pl32 pr32 pb24">What do you do when the world feels scary?</p>
-			      </div>
-			      <div class="text-center post">
-			        <img src="images/blogArticle2.png"/>
-			        <p class="text-size-smd text-capitalize pl32 pr32 pb24">Love Story: A Long One, But It's So Good I Couldn't Resist.</p>
-			      </div>
-
-			      <div class="text-center post">
-			        <img src="images/blogArticle.png"/>
-			        <p class="text-size-smd text-capitalize pl32 pr32 pb24">What Do You Do When The World Feels Scary?</p>
-			      </div>
-
-			      <div class="text-center post">
-			        <img src="images/blogArticle2.png"/>
-			        <p class="text-size-smd text-capitalize pl32 pr32 pb24">What Do You Do When The World Feels Scary?</p>
-			      </div>
-
-			      <div class="text-center post">
-			        <img src="images/blogArticle.png"/>
-			        <p class="text-size-smd text-capitalize pl32 pr32 pb24">Love Story: We're Getting Closer - 1 Week Away!</p>
-			      </div>
-
-			      <div class="text-center post">
-			        <img src="images/blogArticle2.png"/>
-			        <p class="text-size-smd text-capitalize pl32 pr32 pb24">What do you do when the world feels scary?</p>
-			      </div>
-					</div>
-				</div>
-	    </div>
-			<div class="mt48 text-color-grey text-center">
-				Follow us around
-			</div>
-			<div class="social-media-section mt32 mb32">
-				<a target="_black" href="https://www.instagram.com/pearmeapp/" class="icon instagram-icon"></a>
-				<a target="_black" href="https://www.facebook.com/pear-715151941955999/" class="icon facebook-icon"></a>
-				<a target="_black" href="https://twitter.com/pearmeapp" class="icon twitter-icon"></a>
-			</div>
-	  </div>
-
-	  <!-- <div class="integrations">
-	    <div class="row">
-	      <div class="col-xs-12 col-sm-4 padding-right">
-	        <h4 class="text-uppercase">Twitter</h4>
-	        <a class="twitter-timeline" height="437"
-	          href="https://twitter.com/TwitterDev">
-	        Tweets by @TwitterDev
-	        </a>
-	      </div>
-
-	      <div class="col-xs-12 col-sm-4 padding-center">
-	        <h4 class="text-uppercase">Instagram</h4>
-	        <iframe src="//lightwidget.com/widgets/1cf089dc79ec5cf783444b7318d87984.html" id="lightwidget_1cf089dc79" name="lightwidget_1cf089dc79"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
-	      </div>
-
-	      <div class="col-xs-12 col-sm-4 padding-left">
-	        <h4 class="text-uppercase">Facebook</h4>
-	        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=437&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=1694822130750294" width="100%" height="437" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-	      </div>
-	    </div>
-	  </div> -->
-
-	</div>
-
-	<div class="landing-support support mb24 mt96 pb96">
-		<div id="nav-support-trigger"></div>
-		<div class="hero-title support-title">
-			<h1 class="text-center">Support</h1>
-		</div>
-
-		<div class="row support-container">
-			<div class="item col-xs-12 col-sm-8 text-center pt72">
-	      <p class="text-size-md margin0 clickable title">Where can I download Pear?</p>
-				<p class="text-color-black text-size-xs text-thin desc">
-					Pear is currently available for download only in test-mode. Fill in the form to be invited to test the application and be notified of when we launch in your city. We are coming soon! 
-				</p>
-	      <div class="bullet mt24 mb24"></div>
-	    </div>
-
-	    <div class="item col-xs-12 col-sm-8 text-center">
-	      <p class="text-size-md margin0 clickable title">Why sign in through Facebook?</p>
-				<p class="text-color-black text-size-xs text-thin desc">
-					We require you to sign up with Facebook as it drastically reduces the number of fake accounts.
-	      </p>
-	      <div class="bullet mt24 mb24"></div>
-	    </div>
-
-	    <div class="item col-xs-12 col-sm-8 text-center">
-	      <p class="text-size-md margin0 clickable title">How do I personalize my profile?</p>
-				<p class="text-color-black text-size-xs text-thin desc">
-					Once you sign up you’ll be directed to the profile page. You can then upload up to 5 pictures and edit your bio. Your name and age will be displayed automatically.
-	      </p>
-	      <div class="bullet mt24 mb24"></div>
-	    </div>
-
-	    <div class="item col-xs-12 col-sm-8 text-center">
-	      <p class="text-size-md margin0 clickable title">Why am I asked to look at two profiles of potential partners at once?</p>
-				<p class="text-color-black text-size-xs text-thin desc">
-					Let’s say you are showed Charlie and Jessie. When you click on the Pear icon in Jessie’s pic, you are telling us that you like Jessie more than Charlie. By asking you to perform more comparisons, we can figure out who you like more from who you like less. The more you compare, the more we learn about you, the more your matches improve. So keep comparing!
-	      </p>
-				<div class="bullet mt24 mb24"></div>
-	    </div>
-
-			<div class="item col-xs-12 col-sm-8 text-center pb96">
-	      <p class="text-size-md margin0 clickable title">Why do I have a fixed number of matches?</p>
-				<p class="text-color-black text-size-xs text-thin desc">
-					We want to create matches that matter. We don’t match you with just about anyone that likes you and you like back. We pair you with the selected few you like the most, that also like you back.
-	      </p>
-	    </div>
-		</div>
-
-		<div class="button green shadow text-uppercase button-join">
-			Show all Q&A
-		</div>
-	</div>
-
-	<!-- <div id="nav-media-trigger"></div>
-	<div class="landing-press mb24 pb9">
-		<div class="hero-title press-title mb96">
-			<h1 class="text-center"> We would LOVE to share our story <br/> and our results.</h1>
-		</div>
-
-		<div class="press-content row pb48">
-			<div class="col-xs-12 col-sm-7">
-				<p>
-					If you are a journalist, blogger or member of the media, please feel free to contact us!
-				</p>
-				<p class="mt32">
-					We would be more than happy to talk to you.
-				</p>
-				<p class="mt32">
-					Download our press kit here or contact <a class="text-link text-underline" href="mailto:xxx@xxx.com">xxx@xxx.com</a>
-				</p>
-			</div>
-			<div class="col-xs-12 col-sm-5">
-				<div class="pear-logo"></div>
-				<div class="button green shadow text-uppercase button-download-kit mt40">
-					PEAR_PRESS_KIT_2016.zip
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- <div id="nav-launch-trigger"></div>
-	<div class="landing-launch text-center pt24 mb96">
-		<div class="pear-logo mt84"></div>
-		<h1 class="text-uppercase mt32">
-			Know when we visit your city <br/>
-			to know when we launch in your city
-		</h1>
-		<p class="mt24">
-			Join our community to know when we are in your city. Vip access to</br>
-			the app and our launch night.
-		</p>
-		<p class="mt32">
-			Join our community to be among our beta tester or know when Pear will be available in your city.
-		</p>
-
-		<div class="landing-join mt84">
-			<div class="form-join row">
-				<div class="col-xs-12 col-sm-4">
-					<input type="text" placeholder="Name" />
-				</div>
-				<div class="col-xs-12 col-sm-4">
-					<input type="text" placeholder="Email" />
-				</div>
-				<div class="col-xs-12 col-sm-4 select-container input-line">
-					<select class="select-age-home">
-						<option></option>
-					</select>
-				</div>
-			</div>
-		</div>
-
-		<div class="button green shadow text-uppercase button-join mt56">
-			Join now
-		</div>
-		<div class="we-promise mt24">
-			We promise to keep our emails to a minimum
-		</div>
-	</div> -->
-
-</div>
-
-@@include('./_includes/footer.html')
+<body>
+  <div class="burger-menu-overlay">
+    <ul>
+      <li data-menuanchor="slide1" class="nav-item clickable">
+        <a href="#slide1">Home</a>
+      </li>
+      <li data-menuanchor="slide2" class="nav-item clickable">
+        <a href="#slide2">About</a>
+      </li>
+      <li data-menuanchor="slide7" class="nav-item clickable">
+        <a href="#slide7">Blog</a>
+      </li>
+      <li data-menuanchor="slide8" class="nav-item clickable">
+        <a href="#slide8">Q &amp; A</a>
+      </li>
+    </ul>
+    <!-- <div id="nav-home-trigger" class="nav-item clickable">Home</div>
+    <div id="nav-about-trigger" class="nav-item clickable">About</div>
+    <div id="nav-blog-trigger" class="nav-item clickable">Blog</div>
+    <div id="nav-support-trigger" class="nav-item clickable">Q &amp; A</div> -->
+  </div>
+  <div class="burger-menu">
+    <div class="burger-line burger-line-top"></div>
+    <div class="burger-line burger-line-middle"></div>
+    <div class="burger-line burger-line-bottom"></div>
+  </div>
+  <!-- <div class="cookies-consent">
+    <div class="container col-xs-11 col-md-10">
+      <div class="row">
+        <p>This site uses cookies. By continuing to use this site, you are agreeing to our use of cookies.</p>
+        <button class="button small green">Ok, got it!</button>
+      </div>
+    </div>
+  </div> -->
+  <!--Add .fixed class to .top-nav for fixed state of top nav"-->
+  <div id="top-nav" class="top-nav">
+    <span class="pear-logo"></span>
+    <nav class="nav-container">
+      <ul class="top-nav-menu">
+        <li data-menuanchor="slide1" class="active">
+          <a href="#slide1">Home</a>
+        </li>
+        <li data-menuanchor="slide2">
+          <a href="#slide2">About</a>
+        </li>
+        <li data-menuanchor="slide7">
+          <a href="#slide7">Blog</a>
+        </li>
+        <li data-menuanchor="slide8">
+          <a href="#slide8">Support</a>
+        </li>
+      </ul>
+      <!--   <div id="nav-home" class="nav-item clickable">Home</div>
+      <div id="nav-about" class="nav-item clickable">About</div>
+      <div id="nav-blog" class="nav-item clickable">Blog</div>
+      <div id="nav-support" class="nav-item clickable">Q &amp; A</div>
+     -->
+    </nav>
+  </div>
+  <div id="fullpage">
+    <div class="landing">
+      <div class="section" id="section1">
+        <div class="landing-hero">
+          <div id="nav-home-trigger"></div>
+          <div class="content">
+            <div class="mid-section text-center">
+              <div class="pear-logo"></div>
+              <h1>Where science and math meet to find your perfect match</h1>
+              <p class="mt16 mb32 join-intro">Join our community to be among our beta testers or know when Pear will be available in your city</p>
+              <div class="row join-form-container">
+                <div class="col-xs-12 col-sm-4">
+                  <input class="input-boxed" type="text" placeholder="Name" />
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <input class="input-boxed" type="email" placeholder="Email" />
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-3 button green shadow text-uppercase button-join">Join now</div>
+              </div>
+              <div class="download-app">
+                <h5>Download now</h5>
+                <div class="platform-store">
+                  <div class="badge app-store">
+                    <a href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40">
+                        <path fill="#A6A6A6" d="M130.197 40H4.73C2.12 40 0 37.872 0 35.267V4.727C0 2.12 2.122 0 4.73 0h125.467C132.803 0 135 2.12 135 4.726v30.54c0 2.606-2.197 4.734-4.803 4.734z" />
+                        <path d="M134.032 35.268c0 2.116-1.714 3.83-3.834 3.83H4.728c-2.118 0-3.838-1.714-3.838-3.83V4.725C.89 2.61 2.61.89 4.73.89h125.467c2.12 0 3.834 1.72 3.834 3.835l.002 30.543z" />
+                        <g fill="#FFF">
+                          <path d="M30.128 19.784c-.03-3.223 2.64-4.79 2.76-4.864-1.51-2.203-3.852-2.504-4.675-2.528-1.967-.207-3.875 1.177-4.877 1.177-1.022 0-2.565-1.158-4.228-1.124-2.14.033-4.142 1.272-5.24 3.196-2.266 3.923-.576 9.688 1.595 12.86 1.086 1.552 2.355 3.286 4.016 3.225 1.624-.067 2.23-1.036 4.192-1.036 1.943 0 2.513 1.037 4.207.998 1.743-.028 2.84-1.56 3.89-3.127 1.254-1.78 1.758-3.532 1.778-3.622-.04-.014-3.387-1.29-3.42-5.154zM26.928 10.306c.874-1.093 1.472-2.58 1.306-4.09-1.265.057-2.847.876-3.758 1.945-.806.943-1.526 2.487-1.34 3.94 1.42.105 2.88-.718 3.792-1.794z" />
+                        </g>
+                        <g fill="#FFF">
+                          <path d="M53.645 31.504h-2.27l-1.245-3.91h-4.324l-1.185 3.91h-2.21l4.284-13.308h2.646l4.305 13.308zm-3.89-5.55L48.63 22.48c-.12-.355-.342-1.19-.67-2.507h-.04c-.132.566-.343 1.402-.633 2.507l-1.105 3.475h3.573zM64.662 26.588c0 1.632-.44 2.922-1.323 3.87-.79.842-1.772 1.263-2.943 1.263-1.264 0-2.172-.453-2.725-1.36h-.04v5.054H55.5V25.067c0-1.026-.027-2.08-.08-3.16h1.876l.12 1.522h.04c.71-1.147 1.79-1.72 3.237-1.72 1.132 0 2.077.448 2.833 1.343.758.896 1.136 2.074 1.136 3.535zm-2.172.078c0-.934-.21-1.704-.632-2.31-.46-.632-1.08-.948-1.856-.948-.526 0-1.004.176-1.43.523-.43.35-.71.808-.84 1.374-.066.264-.1.48-.1.65v1.6c0 .698.215 1.287.643 1.768s.984.72 1.668.72c.803 0 1.428-.31 1.875-.927.448-.62.672-1.435.672-2.45zM75.7 26.588c0 1.632-.442 2.922-1.325 3.87-.79.842-1.77 1.263-2.94 1.263-1.265 0-2.173-.453-2.725-1.36h-.04v5.054h-2.132V25.067c0-1.026-.027-2.08-.08-3.16h1.876l.12 1.522h.04c.71-1.147 1.788-1.72 3.237-1.72 1.132 0 2.077.448 2.835 1.343.755.896 1.134 2.074 1.134 3.535zm-2.173.078c0-.934-.21-1.704-.633-2.31-.46-.632-1.078-.948-1.855-.948-.528 0-1.005.176-1.433.523-.428.35-.707.808-.838 1.374-.066.264-.1.48-.1.65v1.6c0 .698.214 1.287.64 1.768.428.48.984.72 1.67.72.803 0 1.428-.31 1.875-.927.448-.62.672-1.435.672-2.45zM88.04 27.772c0 1.132-.394 2.053-1.183 2.764-.867.777-2.074 1.165-3.625 1.165-1.432 0-2.58-.275-3.45-.828l.495-1.777c.936.566 1.963.85 3.082.85.802 0 1.427-.182 1.876-.544.447-.36.67-.847.67-1.453 0-.54-.184-.995-.553-1.364-.367-.37-.98-.712-1.836-1.03-2.33-.868-3.494-2.14-3.494-3.815 0-1.094.408-1.99 1.225-2.69.814-.698 1.9-1.047 3.258-1.047 1.21 0 2.217.212 3.02.633l-.533 1.738c-.75-.407-1.598-.61-2.547-.61-.75 0-1.336.184-1.756.552-.355.33-.533.73-.533 1.205 0 .526.203.96.61 1.303.356.316 1 .658 1.937 1.027 1.145.46 1.986 1 2.527 1.618.54.616.81 1.387.81 2.307zM95.088 23.508h-2.35v4.66c0 1.184.414 1.776 1.244 1.776.38 0 .697-.033.947-.1l.058 1.62c-.42.157-.973.236-1.658.236-.842 0-1.5-.257-1.975-.77-.473-.514-.71-1.376-.71-2.587v-4.837h-1.4v-1.6h1.4V20.15l2.093-.633v2.39h2.35v1.6zM105.69 26.627c0 1.475-.42 2.686-1.263 3.633-.883.975-2.055 1.46-3.516 1.46-1.407 0-2.528-.466-3.364-1.4s-1.254-2.113-1.254-3.534c0-1.487.43-2.705 1.293-3.652.86-.948 2.023-1.422 3.484-1.422 1.407 0 2.54.467 3.395 1.402.818.907 1.226 2.078 1.226 3.513zm-2.21.07c0-.886-.19-1.645-.573-2.278-.447-.767-1.086-1.15-1.914-1.15-.857 0-1.508.384-1.955 1.15-.383.633-.572 1.404-.572 2.316 0 .885.19 1.644.572 2.276.46.766 1.105 1.148 1.936 1.148.814 0 1.453-.39 1.914-1.168.393-.645.59-1.412.59-2.296zM112.62 23.783c-.21-.04-.435-.06-.67-.06-.75 0-1.33.284-1.74.85-.354.5-.532 1.133-.532 1.896v5.034h-2.13l.02-6.574c0-1.106-.028-2.113-.08-3.02h1.856l.078 1.835h.06c.224-.63.58-1.14 1.065-1.52.475-.343.988-.514 1.54-.514.198 0 .376.015.534.04v2.033zM122.156 26.252c0 .382-.025.704-.078.967h-6.396c.025.947.334 1.672.928 2.172.54.447 1.236.67 2.092.67.947 0 1.81-.15 2.588-.453l.334 1.48c-.908.395-1.98.592-3.217.592-1.488 0-2.656-.438-3.506-1.313-.847-.876-1.272-2.05-1.272-3.525 0-1.447.395-2.652 1.186-3.613.828-1.026 1.947-1.54 3.355-1.54 1.382 0 2.43.514 3.14 1.54.563.815.846 1.823.846 3.02zm-2.033-.553c.014-.633-.125-1.18-.414-1.64-.37-.593-.937-.89-1.7-.89-.697 0-1.264.29-1.697.87-.355.46-.566 1.014-.63 1.658h4.44z" />
+                        </g>
+                        <g fill="#FFF">
+                          <path d="M49.05 10.01c0 1.176-.353 2.062-1.058 2.657-.653.55-1.58.824-2.783.824-.597 0-1.107-.025-1.534-.077v-6.43c.557-.09 1.157-.137 1.805-.137 1.146 0 2.01.25 2.59.747.653.563.98 1.368.98 2.416zm-1.105.028c0-.763-.202-1.348-.606-1.756-.405-.407-.995-.61-1.772-.61-.33 0-.61.02-.844.067v4.888c.13.02.365.03.708.03.802 0 1.42-.224 1.857-.67s.655-1.096.655-1.95zM54.91 11.037c0 .725-.208 1.32-.622 1.785-.434.48-1.01.718-1.727.718-.69 0-1.242-.23-1.653-.69-.41-.458-.615-1.037-.615-1.735 0-.73.21-1.33.635-1.794s.994-.697 1.712-.697c.69 0 1.247.23 1.668.688.4.447.6 1.023.6 1.727zm-1.088.034c0-.434-.094-.807-.28-1.118-.22-.376-.534-.564-.94-.564-.422 0-.742.188-.962.564-.188.31-.28.69-.28 1.138 0 .435.093.808.28 1.12.227.375.543.563.95.563.4 0 .715-.19.94-.574.195-.318.292-.694.292-1.13zM62.765 8.72l-1.475 4.713h-.96l-.61-2.047c-.156-.51-.282-1.02-.38-1.523h-.02c-.09.518-.216 1.025-.378 1.523l-.65 2.047h-.97L55.935 8.72h1.077l.533 2.24c.13.53.235 1.035.32 1.513h.02c.077-.394.206-.896.388-1.503l.67-2.25h.853l.64 2.202c.156.537.282 1.054.38 1.552h.028c.07-.485.178-1.002.32-1.552l.572-2.202h1.03zM68.198 13.433H67.15v-2.7c0-.832-.316-1.248-.95-1.248-.31 0-.562.114-.757.343-.193.23-.29.5-.29.808v2.796h-1.05v-3.366c0-.414-.012-.863-.037-1.35h.92l.05.738h.03c.12-.23.303-.418.542-.57.284-.175.602-.264.95-.264.44 0 .806.142 1.097.427.362.35.543.87.543 1.562v2.823zM71.088 13.433H70.04V6.556h1.048v6.877zM77.258 11.037c0 .725-.207 1.32-.62 1.785-.435.48-1.01.718-1.728.718-.693 0-1.244-.23-1.654-.69-.41-.458-.615-1.037-.615-1.735 0-.73.212-1.33.636-1.794s.994-.697 1.71-.697c.694 0 1.25.23 1.67.688.4.447.602 1.023.602 1.727zm-1.088.034c0-.434-.094-.807-.28-1.118-.22-.376-.534-.564-.94-.564-.422 0-.742.188-.96.564-.19.31-.282.69-.282 1.138 0 .435.094.808.28 1.12.228.375.544.563.952.563.4 0 .713-.19.94-.574.194-.318.29-.694.29-1.13zM82.33 13.433h-.94l-.08-.543h-.028c-.322.433-.78.65-1.377.65-.445 0-.805-.143-1.076-.427-.247-.258-.37-.58-.37-.96 0-.576.24-1.015.723-1.32.482-.303 1.16-.452 2.033-.445V10.3c0-.62-.326-.93-.98-.93-.464 0-.874.116-1.228.348l-.213-.688c.438-.27.98-.407 1.617-.407 1.232 0 1.85.65 1.85 1.95v1.736c0 .47.023.845.068 1.123zm-1.088-1.62v-.727c-1.156-.02-1.734.297-1.734.95 0 .246.066.43.2.553.136.122.308.183.513.183.23 0 .446-.073.642-.218.197-.146.318-.33.363-.558.01-.05.017-.113.017-.184zM88.285 13.433h-.93l-.05-.757h-.028c-.297.576-.803.864-1.514.864-.568 0-1.04-.223-1.416-.67s-.562-1.024-.562-1.735c0-.763.203-1.38.61-1.853.396-.44.88-.66 1.456-.66.634 0 1.077.213 1.33.64h.02V6.556h1.048v5.607c0 .46.012.882.037 1.27zM87.2 11.445v-.786c0-.137-.01-.247-.03-.33-.06-.253-.186-.465-.38-.636-.194-.17-.43-.257-.7-.257-.39 0-.697.155-.922.466-.223.31-.336.708-.336 1.193 0 .466.107.844.322 1.135.227.31.533.466.916.466.344 0 .62-.13.828-.388.202-.24.3-.527.3-.863zM97.248 11.037c0 .725-.207 1.32-.62 1.785-.435.48-1.01.718-1.728.718-.69 0-1.242-.23-1.654-.69-.41-.458-.615-1.037-.615-1.735 0-.73.212-1.33.636-1.794s.994-.697 1.713-.697c.69 0 1.247.23 1.667.688.4.447.6 1.023.6 1.727zm-1.086.034c0-.434-.094-.807-.28-1.118-.222-.376-.534-.564-.942-.564-.42 0-.74.188-.96.564-.19.31-.282.69-.282 1.138 0 .435.094.808.28 1.12.228.375.544.563.952.563.4 0 .715-.19.94-.574.194-.318.292-.694.292-1.13zM102.883 13.433h-1.047v-2.7c0-.832-.316-1.248-.95-1.248-.312 0-.563.114-.757.343s-.292.5-.292.808v2.796h-1.05v-3.366c0-.414-.01-.863-.036-1.35h.92l.05.738h.028c.123-.23.305-.418.543-.57.285-.175.602-.264.95-.264.44 0 .806.142 1.097.427.363.35.543.87.543 1.562v2.823zM109.936 9.504h-1.154v2.29c0 .582.205.873.61.873.19 0 .345-.016.468-.05l.027.796c-.207.078-.48.117-.814.117-.414 0-.736-.126-.97-.378-.233-.252-.35-.676-.35-1.27V9.503h-.688V8.72h.69v-.865l1.026-.31v1.173h1.155v.786zM115.484 13.433h-1.05v-2.68c0-.845-.315-1.268-.948-1.268-.486 0-.818.245-1 .735-.03.103-.05.23-.05.377v2.835h-1.046V6.556h1.047v2.84h.02c.33-.516.803-.774 1.416-.774.434 0 .793.142 1.078.427.356.354.534.882.534 1.58v2.803zM121.207 10.853c0 .188-.014.346-.04.475h-3.142c.014.466.164.82.455 1.067.266.22.61.33 1.03.33.464 0 .888-.074 1.27-.223l.164.728c-.447.194-.973.29-1.582.29-.73 0-1.305-.214-1.72-.644-.42-.43-.626-1.007-.626-1.73 0-.712.193-1.304.582-1.776.406-.504.955-.756 1.648-.756.678 0 1.193.252 1.54.756.282.4.42.895.42 1.483zm-1-.27c.008-.312-.06-.58-.203-.806-.182-.29-.46-.437-.834-.437-.342 0-.62.142-.834.427-.174.227-.277.498-.31.815h2.18z" />
+                        </g>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="badge google-play">
+                    <a href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="135.717" height="40.02" viewBox="0 0 135.717 40.02">
+                        <pattern x="-84.642" y="218.51" width="124" height="48" patternUnits="userSpaceOnUse" id="s" viewBox="0 -48 124 48" overflow="visible">
+                          <path fill="none" d="M0 0h124v-48H0z" />
+                          <defs>
+                            <path id="a" d="M0-48h124V0H0z" />
+                          </defs>
+                          <clipPath id="b">
+                            <use xlink:href="#a" overflow="visible" />
+                          </clipPath>
+                          <g clip-path="url(#b)">
+                            <path d="M29.625-20.695l-11.613 6.598c-.65.37-1.23.344-1.606.008l-.058.063.058.06c.375.335.957.358 1.606-.013L29.7-20.62l-.075-.075z" />
+                          </g>
+                        </pattern>
+                        <pattern x="-84.642" y="218.51" width="124" height="48" patternUnits="userSpaceOnUse" id="A" viewBox="0 -48 124 48" overflow="visible">
+                          <path fill="none" d="M0 0h124v-48H0z" />
+                          <defs>
+                            <path id="c" d="M0-48h124V0H0z" />
+                          </defs>
+                          <clipPath id="d">
+                            <use xlink:href="#c" overflow="visible" />
+                          </clipPath>
+                          <g clip-path="url(#d)">
+                            <path d="M16.348-14.145c-.235-.246-.37-.63-.37-1.125v.117c0 .496.135.88.37 1.125l.058-.062-.058-.055z" />
+                          </g>
+                        </pattern>
+                        <pattern x="-84.642" y="218.51" width="124" height="48" patternUnits="userSpaceOnUse" id="I" viewBox="0 -48 124 48" overflow="visible">
+                          <path fill="none" d="M0 0h124v-48H0z" />
+                          <defs>
+                            <path id="e" d="M0-48h124V0H0z" />
+                          </defs>
+                          <clipPath id="f">
+                            <use xlink:href="#e" overflow="visible" />
+                          </clipPath>
+                          <g clip-path="url(#f)">
+                            <path d="M33.613-22.96l-3.988 2.265.074.074 3.913-2.224c.56-.316.836-.734.836-1.156-.048.38-.333.75-.837 1.04z" />
+                          </g>
+                        </pattern>
+                        <pattern x="-84.642" y="218.51" width="124" height="48" patternUnits="userSpaceOnUse" id="Q" viewBox="0 -48 124 48" overflow="visible">
+                          <path fill="none" d="M0 0h124v-48H0z" />
+                          <defs>
+                            <path id="g" d="M0-48h124V0H0z" />
+                          </defs>
+                          <clipPath id="h">
+                            <use xlink:href="#g" overflow="visible" />
+                          </clipPath>
+                          <g clip-path="url(#h)">
+                            <path fill="#FFF" d="M18.012-33.902l15.6 8.863c.51.29.79.66.837 1.04 0-.418-.278-.836-.837-1.156l-15.6-8.864c-1.118-.633-2.036-.105-2.036 1.176v.113c0-1.278.918-1.805 2.035-1.172z" />
+                          </g>
+                        </pattern>
+                        <path d="M130.54 39.943H5.24c-2.755 0-5.012-2.23-5.012-4.954V5.266C.228 2.544 2.485.314 5.24.314h125.3c2.755 0 5.01 2.23 5.01 4.953V34.99c0 2.723-2.255 4.953-5.01 4.953z" />
+                        <path fill="#A6A6A6" d="M130.54 1.108c2.32 0 4.207 1.866 4.207 4.16v29.72c0 2.295-1.888 4.16-4.208 4.16H5.24c-2.32 0-4.207-1.865-4.207-4.16V5.27c0-2.294 1.888-4.16 4.207-4.16h125.3m0-.794H5.24C2.485.314.228 2.544.228 5.267V34.99c0 2.723 2.257 4.953 5.012 4.953h125.3c2.755 0 5.01-2.23 5.01-4.954V5.266c0-2.723-2.255-4.953-5.01-4.953z" />
+                        <path fill="#FFF" stroke="#FFF" stroke-width=".16" stroke-miterlimit="10" d="M45.934 16.195c0 .668-.2 1.203-.594 1.602-.454.473-1.044.71-1.766.71-.69 0-1.28-.24-1.765-.718-.486-.485-.728-1.08-.728-1.79s.242-1.304.727-1.784c.483-.48 1.073-.723 1.764-.723.344 0 .672.07.985.203.31.132.565.312.75.535l-.42.423c-.32-.38-.757-.566-1.316-.566-.504 0-.94.177-1.312.53-.367.357-.55.818-.55 1.384s.183 1.032.55 1.387c.37.352.808.53 1.312.53.535 0 .985-.18 1.34-.534.234-.235.367-.56.402-.973h-1.742v-.577h2.324c.028.124.036.245.036.362zM49.62 14.19H47.44v1.52h1.97v.58h-1.97v1.52h2.183v.588h-2.8v-4.796h2.8v.59zM52.223 18.398h-.618V14.19h-1.34v-.588h3.298v.588h-1.34v4.208zM55.95 18.398v-4.796h.616v4.796h-.617zM59.3 18.398h-.612V14.19h-1.344v-.588h3.3v.588h-1.343v4.208zM66.887 17.78c-.473.486-1.06.728-1.758.728-.704 0-1.29-.242-1.763-.727-.472-.483-.707-1.077-.707-1.78 0-.703.235-1.297.707-1.78.473-.486 1.06-.728 1.762-.728.694 0 1.28.242 1.753.73.475.49.71 1.08.71 1.778 0 .703-.234 1.297-.706 1.78zm-3.063-.4c.356.36.79.538 1.305.538.51 0 .948-.18 1.3-.54.355-.358.535-.82.535-1.377 0-.558-.18-1.02-.535-1.378-.352-.36-.79-.54-1.3-.54-.517 0-.95.182-1.306.54-.355.36-.535.82-.535 1.38 0 .557.18 1.018.534 1.377zM68.46 18.398v-4.796h.752l2.332 3.73h.026l-.026-.923V13.6h.616v4.796h-.644l-2.442-3.914h-.027l.027.926v2.99h-.613z" transform="matrix(1.253 0 0 1.2384 -9.796 -9.594)" />
+                        <path fill="#FFF" d="M68.526 21.865c-2.354 0-4.277 1.77-4.277 4.214 0 2.423 1.922 4.212 4.276 4.212 2.36 0 4.283-1.79 4.283-4.213 0-2.444-1.924-4.215-4.284-4.215zm0 6.768c-1.29 0-2.403-1.054-2.403-2.554 0-1.52 1.112-2.556 2.403-2.556s2.41 1.035 2.41 2.555c0 1.5-1.118 2.553-2.41 2.553zm-9.333-6.768c-2.36 0-4.278 1.77-4.278 4.214 0 2.423 1.918 4.212 4.278 4.212 2.357 0 4.278-1.79 4.278-4.213 0-2.444-1.92-4.215-4.277-4.215zm0 6.768c-1.293 0-2.408-1.054-2.408-2.554 0-1.52 1.115-2.556 2.408-2.556 1.292 0 2.403 1.035 2.403 2.555 0 1.5-1.11 2.553-2.403 2.553zm-11.107-5.477v1.79h4.327c-.127 1.002-.465 1.737-.984 2.25-.632.62-1.616 1.307-3.344 1.307-2.662 0-4.747-2.124-4.747-4.756s2.084-4.756 4.746-4.756c1.44 0 2.488.558 3.26 1.278l1.277-1.262c-1.082-1.02-2.52-1.804-4.537-1.804-3.65 0-6.72 2.936-6.72 6.545s3.07 6.545 6.72 6.545c1.973 0 3.455-.64 4.62-1.838 1.194-1.18 1.566-2.84 1.566-4.18 0-.416-.035-.798-.097-1.118h-6.09zm45.416 1.39c-.352-.944-1.438-2.68-3.65-2.68-2.195 0-4.02 1.705-4.02 4.213 0 2.36 1.807 4.212 4.23 4.212 1.958 0 3.088-1.18 3.553-1.868l-1.453-.957c-.485.7-1.146 1.166-2.1 1.166-.95 0-1.63-.43-2.065-1.277l5.702-2.33-.198-.48zm-5.814 1.402c-.05-1.625 1.277-2.457 2.227-2.457.744 0 1.376.368 1.586.895l-3.812 1.563zm-4.634 4.088h1.874V17.652h-1.874v12.384zm-3.07-7.233h-.064c-.42-.493-1.224-.938-2.242-.938-2.135 0-4.087 1.852-4.087 4.228 0 2.36 1.953 4.2 4.088 4.2 1.018 0 1.82-.45 2.242-.958h.064v.604c0 1.61-.87 2.476-2.276 2.476-1.145 0-1.857-.817-2.15-1.505l-1.63.674c.47 1.117 1.715 2.49 3.78 2.49 2.198 0 4.052-1.275 4.052-4.386V22.12h-1.776v.683zm-2.144 5.83c-1.292 0-2.373-1.07-2.373-2.54 0-1.485 1.08-2.57 2.373-2.57 1.273 0 2.278 1.085 2.278 2.57 0 1.47-1.005 2.54-2.278 2.54zm24.438-10.98h-4.483v12.383h1.87v-4.693h2.614c2.076 0 4.112-1.485 4.112-3.846-.002-2.36-2.043-3.845-4.114-3.845zm.05 5.968h-2.664v-4.246h2.663c1.396 0 2.193 1.146 2.193 2.123 0 .958-.797 2.124-2.193 2.124zm11.555-1.78c-1.35 0-2.755.59-3.333 1.897l1.66.687c.355-.687 1.013-.91 1.706-.91.97 0 1.955.575 1.968 1.593v.13c-.338-.193-1.062-.48-1.953-.48-1.786 0-3.606.973-3.606 2.787 0 1.66 1.463 2.728 3.108 2.728 1.258 0 1.952-.56 2.388-1.213h.064v.956h1.806v-4.75c0-2.196-1.658-3.425-3.807-3.425zm-.225 6.788c-.612 0-1.464-.3-1.464-1.05 0-.958 1.063-1.326 1.983-1.326.823 0 1.21.18 1.71.416-.148 1.147-1.147 1.96-2.23 1.96zm10.61-6.516l-2.147 5.37h-.063l-2.222-5.37h-2.016l3.337 7.504-1.905 4.173h1.954l5.143-11.678h-2.08zm-16.85 7.924h1.874V17.652h-1.874v12.384z" />
+                        <g transform="matrix(1.253 0 0 -1.2384 -9.796 49.85)">
+                          <linearGradient id="i" gradientUnits="userSpaceOnUse" x1="154.852" y1="317.855" x2="138.069" y2="301.073" gradientTransform="matrix(1.0024 0 0 -.9907 -129.783 329.876)">
+                            <stop offset="0" stop-color="#00A0FF" />
+                            <stop offset=".007" stop-color="#00A1FF" />
+                            <stop offset=".26" stop-color="#00BEFF" />
+                            <stop offset=".512" stop-color="#00D2FF" />
+                            <stop offset=".76" stop-color="#00DFFF" />
+                            <stop offset="1" stop-color="#00E3FF" />
+                          </linearGradient>
+                          <path fill="url(#i)" d="M16.348 33.97c-.235-.247-.37-.63-.37-1.125V15.152c0-.496.135-.88.37-1.125l.058-.054 9.914 9.91v.234l-9.914 9.91-.058-.058z" />
+                        </g>
+                        <g transform="matrix(1.253 0 0 -1.2384 -9.796 49.85)">
+                          <linearGradient id="j" gradientUnits="userSpaceOnUse" x1="164.456" y1="308.737" x2="140.26" y2="308.737" gradientTransform="matrix(1.0024 0 0 -.9907 -129.783 329.876)">
+                            <stop offset="0" stop-color="#FFE000" />
+                            <stop offset=".409" stop-color="#FFBD00" />
+                            <stop offset=".775" stop-color="#FFA500" />
+                            <stop offset="1" stop-color="#FF9C00" />
+                          </linearGradient>
+                          <path fill="url(#j)" d="M29.62 20.578l-3.3 3.305v.234l3.305 3.305.074-.043 3.913-2.228c1.117-.632 1.117-1.672 0-2.308L29.7 20.62l-.08-.042z" />
+                        </g>
+                        <g transform="matrix(1.253 0 0 -1.2384 -9.796 49.85)">
+                          <linearGradient id="k" gradientUnits="userSpaceOnUse" x1="150.609" y1="313.622" x2="127.854" y2="290.868" gradientTransform="matrix(1.0024 0 0 -.9907 -129.783 329.876)">
+                            <stop offset="0" stop-color="#FF3A44" />
+                            <stop offset="1" stop-color="#C31162" />
+                          </linearGradient>
+                          <path fill="url(#k)" d="M29.7 20.62L26.32 24l-9.972-9.973c.37-.39.976-.437 1.664-.047L29.7 20.62" />
+                        </g>
+                        <g transform="matrix(1.253 0 0 -1.2384 -9.796 49.85)">
+                          <linearGradient id="l" gradientUnits="userSpaceOnUse" x1="136.617" y1="318.012" x2="146.781" y2="307.848" gradientTransform="matrix(1.0024 0 0 -.9907 -129.783 329.876)">
+                            <stop offset="0" stop-color="#32A071" />
+                            <stop offset=".069" stop-color="#2DA771" />
+                            <stop offset=".476" stop-color="#15CF74" />
+                            <stop offset=".801" stop-color="#06E775" />
+                            <stop offset="1" stop-color="#00F076" />
+                          </linearGradient>
+                          <path fill="url(#l)" d="M29.7 27.38L18.01 34.02c-.688.386-1.293.34-1.664-.05L26.32 24l3.38 3.38z" />
+                        </g>
+                        <g transform="matrix(1.253 0 0 -1.2384 -9.796 49.85)">
+                          <defs>
+                            <filter id="m" filterUnits="userSpaceOnUse" x="0" y="-48" width="123.999" height="48">
+                              <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                            </filter>
+                          </defs>
+                          <mask maskUnits="userSpaceOnUse" x="0" y="-48" width="123.999" height="48" id="p">
+                            <g filter="url(#m)">
+                              <defs>
+                                <path id="n" d="M-4.7-3.126h124v48h-124z" />
+                              </defs>
+                              <clipPath id="o">
+                                <use xlink:href="#n" overflow="visible" />
+                              </clipPath>
+                              <path clip-path="url(#o)" fill-opacity=".2" d="M7.818 40.254h98.963V1.494H7.82v38.76z" />
+                            </g>
+                          </mask>
+                          <g mask="url(#p)">
+                            <defs>
+                              <path id="q" d="M-15.685-5.722h155.37v59.444h-155.37z" />
+                            </defs>
+                            <clipPath id="r">
+                              <use xlink:href="#q" overflow="visible" />
+                            </clipPath>
+                            <g clip-path="url(#r)">
+                              <pattern id="t" xlink:href="#s" patternTransform="matrix(1.253 0 0 -1.2384 1931.852 -18664.836)" />
+                              <path fill="url(#t)" d="M0 0h124v48H0V0z" />
+                            </g>
+                          </g>
+                        </g>
+                        <g transform="matrix(1.253 0 0 -1.2384 -9.796 49.85)">
+                          <defs>
+                            <filter id="u" filterUnits="userSpaceOnUse" x="0" y="-48" width="123.999" height="48">
+                              <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                            </filter>
+                          </defs>
+                          <mask maskUnits="userSpaceOnUse" x="0" y="-48" width="123.999" height="48" id="x">
+                            <g filter="url(#u)">
+                              <defs>
+                                <path id="v" d="M-4.7-3.126h124v48h-124z" />
+                              </defs>
+                              <clipPath id="w">
+                                <use xlink:href="#v" overflow="visible" />
+                              </clipPath>
+                              <path clip-path="url(#w)" fill-opacity=".12" d="M7.818 40.254h98.963V1.494H7.82v38.76z" />
+                            </g>
+                          </mask>
+                          <g mask="url(#x)">
+                            <defs>
+                              <path id="y" d="M-15.685-5.722h155.37v59.444h-155.37z" />
+                            </defs>
+                            <clipPath id="z">
+                              <use xlink:href="#y" overflow="visible" />
+                            </clipPath>
+                            <g clip-path="url(#z)">
+                              <pattern id="B" xlink:href="#A" patternTransform="matrix(1.253 0 0 -1.2384 1931.852 -18664.836)" />
+                              <path fill="url(#B)" d="M0 0h124v48H0V0z" />
+                            </g>
+                          </g>
+                        </g>
+                        <g transform="matrix(1.253 0 0 -1.2384 -9.796 49.85)">
+                          <defs>
+                            <filter id="C" filterUnits="userSpaceOnUse" x="0" y="-48" width="123.999" height="48">
+                              <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                            </filter>
+                          </defs>
+                          <mask maskUnits="userSpaceOnUse" x="0" y="-48" width="123.999" height="48" id="F">
+                            <g filter="url(#C)">
+                              <defs>
+                                <path id="D" d="M-4.7-3.126h124v48h-124z" />
+                              </defs>
+                              <clipPath id="E">
+                                <use xlink:href="#D" overflow="visible" />
+                              </clipPath>
+                              <path clip-path="url(#E)" fill-opacity=".12" d="M7.818 40.254h98.963V1.494H7.82v38.76z" />
+                            </g>
+                          </mask>
+                          <g mask="url(#F)">
+                            <defs>
+                              <path id="G" d="M-15.685-5.722h155.37v59.444h-155.37z" />
+                            </defs>
+                            <clipPath id="H">
+                              <use xlink:href="#G" overflow="visible" />
+                            </clipPath>
+                            <g clip-path="url(#H)">
+                              <pattern id="J" xlink:href="#I" patternTransform="matrix(1.253 0 0 -1.2384 1931.852 -18664.836)" />
+                              <path fill="url(#J)" d="M0 0h124v48H0V0z" />
+                            </g>
+                          </g>
+                        </g>
+                        <g transform="matrix(1.253 0 0 -1.2384 -9.796 49.85)">
+                          <defs>
+                            <filter id="K" filterUnits="userSpaceOnUse" x="0" y="-48" width="123.999" height="48">
+                              <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                            </filter>
+                          </defs>
+                          <mask maskUnits="userSpaceOnUse" x="0" y="-48" width="123.999" height="48" id="N">
+                            <g filter="url(#K)">
+                              <defs>
+                                <path id="L" d="M-4.7-3.126h124v48h-124z" />
+                              </defs>
+                              <clipPath id="M">
+                                <use xlink:href="#L" overflow="visible" />
+                              </clipPath>
+                              <path clip-path="url(#M)" fill-opacity=".25" d="M7.818 40.254h98.963V1.494H7.82v38.76z" />
+                            </g>
+                          </mask>
+                          <g mask="url(#N)">
+                            <defs>
+                              <path id="O" d="M-15.685-5.722h155.37v59.444h-155.37z" />
+                            </defs>
+                            <clipPath id="P">
+                              <use xlink:href="#O" overflow="visible" />
+                            </clipPath>
+                            <g clip-path="url(#P)">
+                              <pattern id="R" xlink:href="#Q" patternTransform="matrix(1.253 0 0 -1.2384 1931.852 -18664.836)" />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-cover">
+          <figure class="hero-cover-1"></figure>
+          <figure class="hero-cover-2"></figure>
+          <figure class="hero-cover-3"></figure>
+        </div>
+        <div id="menu-toggle-indicator"></div>
+      </div>
+      <!--About-->
+      <div class="section" id="section2">
+        <div id="nav-about-trigger"></div>
+        <div class="scroll-container">
+          <div class="scroll-text">
+            <h1>Create an account</h1>
+            <p>Provide the reader with a basic impression of how actual text will appear.</p>
+          </div>
+          <div class="section-device">
+            <figure class="device">
+              <div class="device-screen">
+                <video class="video" loop muted data-autoplay data-keepplaying>
+                  <source src="images/video-1.mp4" type="video/mp4">
+                  <source src="images/movie-1.webm" type="video/webm">
+                  <source src="images/movie-1.ogv" type="video/ogv">
+                </video>
+                <figure class="screen-1"></figure>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <!--About End-->
+      <div class="section" id="section3">
+        <div class="scroll-container">
+          <div class="scroll-text">
+            <h1>Edit your profile</h1>
+            <p>Provide the reader with a basic impression of how actual text will appear.</p>
+          </div>
+          <div class="section-device">
+            <figure class="device">
+              <div class="device-screen">
+                <video class="video" loop muted data-autoplay data-keepplaying>
+                  <source src="images/video-2.mp4" type="video/mp4">
+                  <source src="images/movie-2.webm" type="video/webm">
+                  <source src="images/movie-2.ogv" type="video/ogv">
+                </video>
+                <figure class="screen-2"></figure>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="section4">
+        <div class="scroll-container">
+          <div class="scroll-text">
+            <h1>Start comparing</h1>
+            <p>Provide the reader with a basic impression of how actual text will appear.</p>
+          </div>
+          <div class="section-device">
+            <figure class="device">
+              <div class="device-screen">
+                <video class="video" loop muted data-autoplay data-keepplaying>
+                  <source src="images/video-3.mp4" type="video/mp4">
+                  <source src="images/video-3.webm" type="video/webm">
+                  <source src="images/movie-3.ogv" type="video/ogv">
+                </video>
+                <figure class="screen-3"></figure>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="section5">
+        <div class="scroll-container">
+          <div class="scroll-text">
+            <h1>Meet your matchmates</h1>
+            <p>Provide the reader with a basic impression of how actual text will appear.</p>
+          </div>
+          <div class="section-device">
+            <figure class="device">
+              <div class="device-screen">
+                <video class="video" loop muted data-autoplay data-keepplaying>
+                  <source src="images/video-4.mp4" type="video/mp4">
+                  <source src="images/video-4.webm" type="video/webm">
+                  <source src="images/movie-4.ogv" type="video/ogv">
+                </video>
+                <figure class="screen-4"></figure>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="section6">
+        <div class="scroll-container">
+          <div class="scroll-text">
+            <h1>Chat and pear up</h1>
+            <p>Provide the reader with a basic impression of how actual text will appear.</p>
+          </div>
+          <div class="section-device">
+            <figure class="device">
+              <div class="device-screen">
+                <video class="video" loop muted data-autoplay data-keepplaying>
+                  <source src="images/video-5.mp4" type="video/mp4">
+                  <source src="images/video-5.webm" type="video/webm">
+                  <source src="images/movie-5.ogv" type="video/ogv">
+                </video>
+                <figure class="screen-5"></figure>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="section7">
+        <!--Blog-->
+        <div id=" nav-blog-trigger"></div>
+        <div class="landing-blog section-cover blog left">
+          <div class="container col-md-9">
+            <div class="row collapse">
+              <div class="col-xs-12 col-sm-6 col-md-5 section-title">
+                <h1>From <span>the blog</span></h1>
+                <h3>Matches that matter</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blog">
+          <div class="container col-md-9">
+            <div class="blog-post">
+              <a href="article.html">
+                <div class="row collapse">
+                  <div class="col-xs-12 col-sm-8 post-details">
+                    <div class="post-date">Nov 29, 2016</div>
+                    <h1>How Pear Solves The Dating Congestion Problem</h1>
+                    <p>Online dating has been growing steadily in popularity</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 post-thumb">
+                    <img src="https://cldup.com/8WlwaMCxNw-3000x3000.jpeg">
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="blog-post">
+              <a href="article.html">
+                <div class="row collapse">
+                  <div class="col-xs-12 col-sm-8 post-details">
+                    <div class="post-date">Nov 29, 2016</div>
+                    <h1>Pear’s Matching Algorithm – Behind the Scenes</h1>
+                    <p>If you are asking yourself how this application really works</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 post-thumb">
+                    <img src="https://cldup.com/q5XRiKW3HA-3000x3000.jpeg">
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="row mt32 mb96">
+              <a href="#" class="button green medium">View all post</a>
+            </div>
+          </div>
+        </div>
+        <!--End of Blog-->
+      </div>
+      <div class="section" id="section8">
+        <!--Support-->
+        <div id="nav-support-trigger"></div>
+        <div class="section-cover landing-support">
+          <div class="container col-md-9">
+            <div class="row collapse">
+              <div class="col-xs-12 section-title">
+                <h1>Support</h1>
+                <h3>Frequently Asked Questions</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="landing-support support">
+          <div class="container col-md-9">
+            <div class="row">
+              <div class="item">
+                <h5 class="clickable title">Where can I download Pear?</h5>
+                <p class="desc">Pear is currently available for download only in test-mode. Fill in the form to be invited to test the application and be notified of when we launch in your city. We are coming soon!</p>
+              </div>
+              <div class="item">
+                <h5 class="clickable title">Why sign in through Facebook?</h5>
+                <p class="desc">We require you to sign up with Facebook as it drastically reduces the number of fake accounts.</p>
+              </div>
+              <div class="item">
+                <h5 class="clickable title">How do I personalize my profile?</h5>
+                <p class="desc">Once you sign up you’ll be directed to the profile page. You can then upload up to 5 pictures and edit your bio. Your name and age will be displayed automatically.</p>
+              </div>
+              <div class="item">
+                <h5 class="clickable title">Why am I asked to look at two profiles of potential partners at once?</h5>
+                <p class="desc">Let’s say you are showed Charlie and Jessie. When you click on the Pear icon in Jessie’s pic, you are telling us that you like Jessie more than Charlie. By asking you to perform more comparisons, we can figure out who you like more from who you like less. The more you compare, the more we learn about you, the more your matches improve. So keep comparing!</p>
+              </div>
+              <div class="item">
+                <h5 class="clickable title">Why do I have a fixed number of matches?</h5>
+                <p class="desc">We want to create matches that matter. We don’t match you with just about anyone that likes you and you like back. We pair you with the selected few you like the most, that also like you back.</p>
+              </div>
+            </div>
+            <div class="row mt16 mb96">
+              <a href="support.html" class="button green medium">View all FAQs</a>
+            </div>
+          </div>
+        </div>
+        @@include('./_includes/footer.html')
+      </div>
+    </div>

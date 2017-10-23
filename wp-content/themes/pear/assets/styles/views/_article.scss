@@ -1,24 +1,92 @@
 .article-cover {
   height: 500px;
-  background: url('../images/hero-blog.png') center center;
+  background: url("https://cldup.com/tWWWiQuAYZ-3000x3000.jpeg") center center;
   background-color: black;
   background-size: cover;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  h1 {
-    color: white;
+  // Small
+  @media #{$extra-small-and-down} {
+    height: 300px;
   }
 }
 
 .article {
+  // Medium
+  @media #{$medium-and-up} {
+    padding: 24px 0;
+  }
 
-}
+  h1 {
+    text-align: center;
+    margin: auto;
+    padding: 48px 0;
 
-.post {
-  img {
-    width: 100%;
+    // Small
+    @media #{$extra-small-and-down} {
+      font-size: 22px;
+      max-width: 90%;
+      padding: 32px 0 24px;
+    }
+
+    // Large Up
+    @media #{$large-and-up} {
+      max-width: 760px;
+    }
+  }
+
+  p {
+    // Medium
+    @media #{$medium-and-up} {
+      margin-bottom: 48px;
+    }
+  }
+
+  figure {
+    margin: 32px 0;
+
+    // Medium
+    @media #{$medium-and-up} {
+      margin: 0 -20% 48px;
+    }
+  }
+
+  figcaption {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+
+  .post {
+    // Small
+    @media #{$extra-small-and-down} {
+      margin: 24px 0 32px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .latest-post-thumb {
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+    margin-bottom: 16px;
+
+    // Small
+    @media #{$extra-small-and-down} {
+      height: 130px;
+    }
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 100%;
+      width: auto;
+      transform: translate(-50%, -50%) scale(2);
+    }
   }
 }
